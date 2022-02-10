@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --wrapper: min(90%, 1100px);
+  --gray: #53565A;
+  --gradient: linear-gradient(to bottom right, #ffce00, #fe4880)
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+
+button {
+  border: none;
+  outline: none;
+  font-weight: thin;
+  cursor: pointer;
+}
+
+body {
+  height: 100vh;
+  background: #53565A;
+  /* background-image: linear-gradient(to bottom right, #ffce00, #fe4880); */
+}

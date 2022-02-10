@@ -1,0 +1,12 @@
+.wrapper {
+    width: var(--wrapper);
+    border: 1px solid black;
+    display: flex;
+    background-color: white;
+    background-image: var(--gradient);
+}
+
+.wrapper>* {
+    flex: 1;
+    border: 1px solid gold;
+}
