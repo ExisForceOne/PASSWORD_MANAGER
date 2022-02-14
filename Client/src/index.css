@@ -23,9 +23,3 @@ button {
   font-weight: thin;
   cursor: pointer;
 }
-
-body {
-  height: 100vh;
-  background: #53565A;
-  /* background-image: linear-gradient(to bottom right, #ffce00, #fe4880); */
-}

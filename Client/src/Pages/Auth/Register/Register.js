@@ -1,6 +1,10 @@
+import GrayBackground from "../../../Components/Wrappers/GrayBackground/GrayBackground";
+
 function Register() {
     return (
-        <p>Register</p>
+        <GrayBackground>
+            <p>Register</p>
+        </GrayBackground>
     );
   }
   

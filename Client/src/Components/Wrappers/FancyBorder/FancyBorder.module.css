@@ -1,0 +1,11 @@
+.back {
+    background: var(--gradient);
+    height: 100vh;
+    padding: 10px;
+}
+
+.content {
+    background-color: white;
+    height: 100%;
+    padding: 10px;
+}

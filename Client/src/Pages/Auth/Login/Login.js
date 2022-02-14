@@ -1,6 +1,10 @@
+import GrayBackground from "../../../Components/Wrappers/GrayBackground/GrayBackground";
+
 function Login() {
     return (
-        <p>Login page</p>
+        <GrayBackground>
+            <p>Login Page</p>
+        </GrayBackground>
     );
   }
   

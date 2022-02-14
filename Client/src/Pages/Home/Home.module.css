@@ -1,14 +1,9 @@
-.wrapper {
-    width: var(--wrapper);
-    border: 1px solid black;
+.flex {
     display: flex;
-    background-color: white;
-    background-image: var(--gradient);
-    height: 90vh;
+    height: 100%;
     color: white;
     flex-direction: column;
 }
-
 
 .bigBtn {
     display: flex;
@@ -31,8 +26,7 @@
 
 
 @media only screen and (min-width: 768px) {
-    .wrapper {
+    .flex {
         flex-direction: row;
-        height: 70vh;
     }
 }
