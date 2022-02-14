@@ -1,12 +1,14 @@
 import style from './Home.module.css'
+import Bar from '../../Components/Home/Bar/Bar'
+
 
 function Home(props){
 
     return (
         <div className={style.wrapper}>
-            <div>Login</div>
-            <span>or</span>
-            <div>Register</div>
+            <button className={style.bigBtn}>Login</button>
+            <Bar />
+            <button className={style.bigBtn}>Register</button>
         </div>
     )
 }

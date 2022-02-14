@@ -4,9 +4,31 @@
     display: flex;
     background-color: white;
     background-image: var(--gradient);
+    height: 90vh;
+    color: white;
+    flex-direction: column;
 }
 
-.wrapper>* {
+
+.bigBtn {
+    transition: .4s;
     flex: 1;
-    border: 1px solid gold;
+    background-color: transparent;
+    font-size: 2.7em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.bigBtn:hover {
+    flex: 2;
+    font-size: 3em;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .wrapper {
+        flex-direction: row;
+        height: 70vh;
+    }
 }
