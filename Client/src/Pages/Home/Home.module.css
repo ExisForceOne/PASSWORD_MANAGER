@@ -11,6 +11,10 @@
 
 
 .bigBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     transition: .4s;
     flex: 1;
     background-color: transparent;

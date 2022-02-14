@@ -1,14 +1,14 @@
 import style from './Home.module.css'
 import Bar from '../../Components/Home/Bar/Bar'
-
+import { Link } from "react-router-dom";
 
 function Home(props){
 
     return (
         <div className={style.wrapper}>
-            <button className={style.bigBtn}>Login</button>
+            <Link to='login'className={style.bigBtn}>Login</Link>
             <Bar />
-            <button className={style.bigBtn}>Register</button>
+            <Link to='login'className={style.bigBtn}>Register</Link>
         </div>
     )
 }
