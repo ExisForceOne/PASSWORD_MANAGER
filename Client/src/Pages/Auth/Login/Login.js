@@ -1,6 +1,7 @@
 import Form from "../../../Components/Forms/Form/Form";
 import { Input } from "../../../Components/Forms/Input/Input";
 import LoadingSubmitBtn from "../../../Components/UI/LoadingSubmitBtn/LoadingSubmitBtn";
+import AuthLink from "../../../Components/AuthLink/Link";
 
 function Login() {
     return (
@@ -21,6 +22,11 @@ function Login() {
             />           
             <LoadingSubmitBtn loading={false} text={'Login'} />
             </Form>
+            
+            <AuthLink 
+            to={'/register'}
+            msg={'First time? Create account here'}
+            />
             </>
 
     );
