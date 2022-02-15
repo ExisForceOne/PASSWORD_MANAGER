@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: var(--gradient);
+    min-height: 100vh;
+}
+
+
+.content {
+    background-color: white;
+    border: 1px solid black;
+}
