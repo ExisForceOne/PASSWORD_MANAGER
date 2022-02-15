@@ -1,0 +1,35 @@
+.submit {
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: inherit;
+    background: var(--gradient);
+    color: white;
+    border-radius: 8px;
+}
+
+.spinnerContainer {
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: inherit;
+    background: var(--gradient);
+    color: white;
+    border-radius: 8px;
+}
+
+.spinner {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top-color: white;
+    border-left-color: white;
+    border-radius: 50%;
+    animation: rotate infinite 0.85s linear;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+
+}
