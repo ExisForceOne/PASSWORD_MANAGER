@@ -1,10 +1,12 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useFormik } from 'formik'
+import yupValidators from "../../../Helpers/yupValidators";
+
 import Form from "../../../Components/Forms/Form/Form";
 import { Input } from "../../../Components/Forms/Input/Input";
 import LoadingSubmitBtn from "../../../Components/UI/LoadingSubmitBtn/LoadingSubmitBtn";
 import AuthLink from "../../../Components/AuthLink/Link";
-import { useFormik } from 'formik'
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function Register() {
     let navigate = useNavigate()
@@ -16,6 +18,7 @@ function Register() {
             password: '',
             repeatPassword: '',
         },
+        validationSchema: yupValidators.register,
         onSubmit: values => register(values)
     })
 
@@ -40,6 +43,10 @@ function Register() {
                 type='email'
                 onChange={formik.handleChange}
                 value={formik.values.email}
+                onBlur={formik.handleBlur}
+                error={formik.touched.email && formik.errors.email 
+                    ? formik.errors.email
+                    : null}
             />
 
             <Input
@@ -49,6 +56,10 @@ function Register() {
                 type='password'
                 onChange={formik.handleChange}
                 value={formik.values.password}
+                onBlur={formik.handleBlur}
+                error={formik.touched.password && formik.errors.password 
+                    ? formik.errors.password
+                    : null}
             />           
             
             <Input
@@ -58,6 +69,10 @@ function Register() {
                 type='password'
                 onChange={formik.handleChange}
                 value={formik.values.repeatPassword}
+                onBlur={formik.handleBlur}
+                error={formik.touched.repeatPassword && formik.errors.repeatPassword 
+                    ? formik.errors.repeatPassword
+                    : null}
             />   
             <LoadingSubmitBtn loading={loading} text={'Register'} />
             </Form>
