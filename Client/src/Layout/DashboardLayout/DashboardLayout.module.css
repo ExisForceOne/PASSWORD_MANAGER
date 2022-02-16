@@ -1,17 +1,13 @@
 .container {
-    height: 100vh;
+    min-height: 100vh;
     padding: 10px;
     background-image: var(--gradient);
-}
-
-
-.content {
-    height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    justify-content: center;
 }
 
-.content>:nth-child(2) {
+.container>:nth-child(2) {
+    background-color: rgb(255, 255, 255);
     flex: 1;
 }

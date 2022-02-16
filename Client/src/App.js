@@ -6,11 +6,13 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import AuthLayout from "./Layout/AuthLayout/AuthLayout";
 import DashboardLayout from "./Layout/DashboardLayout/DashboardLayout"
 import Vault from "./Pages/Vault/Valut";
+import Analysis from "./Pages/Analysis/Analysis"
 
 function App() {
   return (
     <>
         <Routes>
+
           <Route element={<AuthLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="login" element={<Login />} />
@@ -18,9 +20,10 @@ function App() {
           </Route>
           
           <Route element={<DashboardLayout />}> 
-            <Route path='dashboard' element={<Dashboard />} />
             <Route path='vault' element={<Vault />} />
+            <Route path='analysis' element={<Analysis />} />
           </Route>
+          
         </Routes>
     </>
   );

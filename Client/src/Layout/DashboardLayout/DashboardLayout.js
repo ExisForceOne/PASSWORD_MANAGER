@@ -7,11 +7,9 @@ function DashboardLayout(props) {
 
     return (
         <div className={style.container}>
-            <div className={style.content}>
                 <Menu />
                 <Outlet />
                 <Footer />
-            </div>
         </div>
     )
 }

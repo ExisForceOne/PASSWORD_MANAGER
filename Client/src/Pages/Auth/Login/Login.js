@@ -26,7 +26,7 @@ function Login() {
         console.log(values)
         setLoading(true)
         setTimeout(()=>{
-            navigate('/dashboard')
+            navigate('/vault')
         },1500)
     }
 
