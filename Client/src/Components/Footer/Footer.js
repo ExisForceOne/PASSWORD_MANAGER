@@ -1,6 +1,5 @@
 
 const styledFooter = {
-    border: '1px solid black',
     textAlign: 'center',
     marginTop: '10px'
 }
