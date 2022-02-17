@@ -1,12 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home/Home";
-import Login from './Pages/Auth/Login/Login';
-import Register from './Pages/Auth/Register/Register';
-import Dashboard from './Pages/Dashboard/Dashboard';
+import Home from "./Containers/Home/Home";
+import Login from './Containers/Auth/Login/Login';
+import Register from './Containers/Auth/Register/Register';
 import AuthLayout from "./Layout/AuthLayout/AuthLayout";
 import DashboardLayout from "./Layout/DashboardLayout/DashboardLayout"
-import Vault from "./Pages/Vault/Valut";
-import Analysis from "./Pages/Analysis/Analysis"
+import Vault from "./Containers/Vault/Valut";
+import Analysis from "./Containers/Analysis/Analysis"
 
 function App() {
   return (
