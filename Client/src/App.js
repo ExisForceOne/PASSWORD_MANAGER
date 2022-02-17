@@ -19,7 +19,7 @@ function App() {
           </Route>
           
           <Route element={<DashboardLayout />}> 
-            <Route path='vault' element={<Vault />} />
+            <Route path='vault/*' element={<Vault />} />
             <Route path='analysis' element={<Analysis />} />
           </Route>
           
