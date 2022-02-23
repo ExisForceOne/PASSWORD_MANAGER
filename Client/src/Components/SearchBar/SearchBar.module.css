@@ -24,3 +24,9 @@
     background: var(--gradient);
     color: white;
 }
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
