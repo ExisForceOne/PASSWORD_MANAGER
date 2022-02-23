@@ -3,6 +3,8 @@
     justify-content: space-between;
     align-items: center;
     border: 1px solid rgba(78, 78, 78, 0.459);
+    font-size: 1.2rem;
+    height: 65px;
     padding: 10px;
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -13,4 +15,10 @@
     color: #ffc107;
     stroke: rgb(0, 0, 0);
     stroke-width: 12;
+}
+
+@media (min-width: 375px) {
+    .item {
+        font-size: 1.5rem;
+    }
 }
