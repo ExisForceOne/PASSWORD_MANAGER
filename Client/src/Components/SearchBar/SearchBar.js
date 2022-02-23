@@ -1,6 +1,11 @@
 import style from './SearchBar.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FaSearch } from 'react-icons/fa';
+
+const iconCenter = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+}
 
 export default function SearchBar(props){
 
@@ -10,8 +15,8 @@ export default function SearchBar(props){
              type="text"
              placeholder="Search..."
             />
-            <button>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <button style={iconCenter} >
+            <FaSearch />
             </button>
         </form>
     )

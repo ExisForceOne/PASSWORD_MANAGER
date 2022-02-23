@@ -11,7 +11,7 @@ export default function Home(props){
     return (
         <>
         <SearchBar />
-        <p>Home vault here</p>
+        <h4>Your keys:</h4>
         <PassContainer >
             {
             data.map(x=>

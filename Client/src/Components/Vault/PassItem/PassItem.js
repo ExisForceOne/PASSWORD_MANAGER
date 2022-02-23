@@ -1,22 +1,21 @@
+import style from './PassItem.module.css'
+import { FaStar } from 'react-icons/fa'
 
 export default function PassItem(props) {
 
-    const styledItem = {
-        border: '1px solid red',
-        padding: '10px',
-        backgroundColor: props.color || 'white',
-        display: 'flex',
-        justifyContent: 'space-between'
+    const bgc = {
+        backgroundColor: props.color || 'white'
     }
 
+
     return (
-        <div style={styledItem}>
-        <span>{props.name}</span>
+        <div style={bgc} className={style.item}>
+        {props.name}
         {
         props.fav
-        ? <span>ulubione</span>
+        ? <FaStar className={style.icon} />
         : null
-    }
+        }
         </div>
     )
 }
