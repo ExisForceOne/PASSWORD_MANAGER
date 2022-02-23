@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35vh;
+}
+
+.content {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    background: var(--gradient);
+    border-radius: 50%;
+    animation: rotate infinite 0.5s linear;
+}
+
+.content::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
