@@ -8,7 +8,6 @@ import Details from './Details/Details'
 const container = {
     width: '100%',
     fontSize: '1.5rem',
-    padding: '10px'
 }
 
 export default function Vault(props){

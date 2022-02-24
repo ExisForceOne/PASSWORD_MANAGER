@@ -2,7 +2,7 @@ const data = [
     {
         _id: 1,
         name: 'Test1TEST2TEST3TEST4',
-        color: '#ffc107',
+        color: 'green',
         fav: true
     },
     {
@@ -15,17 +15,19 @@ const data = [
         _id: 3,
         name: 'Test3',
         color: 'black',
-        fav: true
+        fav: true,
     },
     {
         _id: 4,
         name: 'Test4',
-        fav: true
+        color: 'pink',
+        fav: true,
     },
     {
         _id: 5,
         name: 'Test5',
-        fav: true
+        color: 'violet',
+        fav: false,
     },
 ]
 

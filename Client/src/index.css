@@ -18,10 +18,17 @@ html {
   font-family: var(--fontFamily)
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 button {
   border: none;
   outline: none;
   font-weight: thin;
   cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  background-color: inherit;
 }

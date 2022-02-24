@@ -10,7 +10,7 @@ export default function PassItem(props) {
 
     return (
         <div style={bgc} className={style.item}>
-        {props.name}
+        <span>{props.name}</span>
         {
         props.fav
         ? <FaStar className={style.icon} />
