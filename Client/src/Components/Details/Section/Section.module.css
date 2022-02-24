@@ -1,8 +1,7 @@
 .container {
     display: flex;
     align-items: center;
-    font-size: 1.4rem;
-    /* padding: 20px; */
+    font-size: 1.0rem;
     margin: 0 auto;
     padding: 20px 0;
     width: min(95%, 700px);
@@ -11,9 +10,17 @@
 
 .container>svg {
     font-size: 1.80em;
+    width: 40px;
 }
 
 .dataContainer {
     flex: 1 1;
     padding: 0 15px;
+}
+
+@media (min-width: 420px) {
+    .container {
+        font-size: 1.4rem;
+    }
+
 }

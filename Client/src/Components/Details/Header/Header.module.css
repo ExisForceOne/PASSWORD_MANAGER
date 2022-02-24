@@ -1,7 +1,7 @@
 .container {
     background-color: rgba(10, 177, 219, 0.637);
     font-size: 1.2rem;
-    padding: 25px;
+    padding: 25px 10px;
     display: flex;
     align-items: center;
     color: white;
@@ -38,6 +38,7 @@
 @media (min-width: 425px) {
     .container {
         font-size: 1.3rem;
+        padding: 25px;
     }
 }
 

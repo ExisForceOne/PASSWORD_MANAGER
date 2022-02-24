@@ -5,7 +5,7 @@ const data = [
         login: 'd.swiadek@vida.pl',
         password: 'Tajne123',
         url: 'https://www.onet.pl/',
-        desc: 'fajne to jest onet',
+        desc: 'fajne to jest onaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaa et',
         color: 'green',
         fav: true
     },

@@ -2,9 +2,10 @@ import Header from "../../../Components/Details/Header/Header"
 import { Login, Password, Url, Desc} from "../../../Components/Details/Section/Section"
 import fakeData from '../../../fakeData'
 
+
 export default function Details(props){
 
-    const data = fakeData[0]
+    const data = fakeData[1]
     console.log(data)
     return (
         <>
@@ -13,9 +14,9 @@ export default function Details(props){
         name={data.name}
         fav={data.fav} />
 
-        <Login
-        value={data.login}
-         />
+        <Login value={data.login}>
+        </Login>
+        
         <Password
         value={data.password}
         />

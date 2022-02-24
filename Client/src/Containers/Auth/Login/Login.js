@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "../../../Components/Forms/Form/Form";
 import { Input } from "../../../Components/Forms/Input/Input";
-import LoadingSubmitBtn from "../../../Components/LoadingSubmitBtn/LoadingSubmitBtn";
-import AuthLink from "../../../Components/AuthLink/Link";
+import LoadingSubmitBtn from "../../../Components/UI/LoadingSubmitBtn/LoadingSubmitBtn";
+import AuthLink from "../../../Components/Login&Register/AuthLink/Link";
 import { useFormik } from 'formik';
 
 function Login() {
