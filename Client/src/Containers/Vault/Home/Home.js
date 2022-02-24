@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import Loading from '../../../Components/Loading/Loading'
-import SearchBar from '../../../Components/SearchBar/SearchBar'
+import Loading from '../../../Components/UI/Loading/Loading'
+import SearchBar from '../../../Components/UI/SearchBar/SearchBar'
 import PassContainer from '../../../Components/Vault/PassContainer/PassContainer'
 import PassItem from '../../../Components/Vault/PassItem/PassItem'
 import fakeData from '../../../fakeData'
