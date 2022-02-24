@@ -2,6 +2,10 @@ const data = [
     {
         _id: 1,
         name: 'Test1TEST2TEST3TEST4',
+        login: 'd.swiadek@vida.pl',
+        password: 'Tajne123',
+        url: 'https://www.onet.pl/',
+        desc: 'fajne to jest onet',
         color: 'green',
         fav: true
     },
@@ -9,13 +13,21 @@ const data = [
         _id: 2,
         name: 'Test2',
         color: '#cdcdcd',
+        login: 'd.swiadek@vida.pl',
+        password: 'Tajne12345',
+        url: 'https://stackoverflow.com',
+        desc: null,
         fav: true
     },
     {
         _id: 3,
         name: 'Test3',
+        login: 'd.swiadek@vida.pl',
+        password: 'Tajne12345',
+        desc: null,
+        url: null,
         color: 'black',
-        fav: true,
+        fav: false,
     },
     {
         _id: 4,
