@@ -6,7 +6,6 @@ import {
         } from 'react-icons/bs'
 
 import { MdOutlineDescription as DescIcon } from "react-icons/md";
-import CopyBtn from '../../UI/CopyBtn/CopyBtn';
 
 function Login(props){
 
@@ -18,7 +17,7 @@ function Login(props){
                 <p>Login:</p>
                 <p>{props.value}</p>
             </div>
-            <CopyBtn value={props.value} />
+            {props.children}
         </div>
         </>
     )
@@ -34,7 +33,7 @@ function Password(props){
                 <p>Password:</p>
                 <p>{props.value}</p>
             </div>
-            <CopyBtn value={props.value} />
+            {props.children}
         </div>
         </>
     )
@@ -50,6 +49,7 @@ function Url(props){
                 <p>Website URL:</p>
                 <p><a href={props.value}>{props.value}</a></p>
             </div>
+            {props.children}
         </div>
         </>
     )
@@ -65,6 +65,7 @@ function Desc(props){
                 <p>Description:</p>
                 <p>{props.value}</p>
             </div>
+            {props.children}
         </div>
         </>
     )
