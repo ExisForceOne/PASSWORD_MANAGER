@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+
 import Loading from '../../../Components/UI/Loading/Loading'
 import SearchBar from '../../../Components/UI/SearchBar/SearchBar'
 import PassContainer from '../../../Components/Vault/PassContainer/PassContainer'
 import PassItem from '../../../Components/Vault/PassItem/PassItem'
+import AddNewKeyBtn from '../../../Components/Vault/AddNewKeyBtn/AddNewKeyBtn'
 import fakeData from '../../../fakeData'
-import {Link} from 'react-router-dom'
+
 
 export default function Home(props){
     const [data, setData] = useState(null)
@@ -36,6 +39,7 @@ export default function Home(props){
 
     return (
         <>
+        <AddNewKeyBtn />
         <SearchBar onSearch={setTerm} />
         <PassContainer 
             header={
