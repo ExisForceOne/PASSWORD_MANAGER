@@ -3,6 +3,7 @@ import Home from './Home/Home'
 import Add from './Add/Add';
 import Edit from './Edit/Edit';
 import Details from './Details/Details'
+import NotFound from "../../Components/NotFound/NotFound";
 
 
 const container = {
@@ -19,6 +20,7 @@ export default function Vault(props){
                 <Route path="add" element={<Add />}/>
                 <Route path="edit" element={<Edit />}/>
                 <Route path="details" element={<Details />}/>
+                <Route path="*" element={<NotFound />} />     
             </Routes>
         </div>
     )

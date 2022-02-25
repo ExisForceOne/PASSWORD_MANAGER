@@ -6,6 +6,7 @@ import AuthLayout from "./Layout/AuthLayout/AuthLayout";
 import DashboardLayout from "./Layout/DashboardLayout/DashboardLayout"
 import Vault from "./Containers/Vault/Valut";
 import Analysis from "./Containers/Analysis/Analysis"
+import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
   return (
@@ -20,9 +21,9 @@ function App() {
           
           <Route element={<DashboardLayout />}> 
             <Route path='vault/*' element={<Vault />} />
-            <Route path='analysis' element={<Analysis />} />
+            <Route path='analysis' element={<Analysis />} />    
           </Route>
-          
+            <Route path="*" element={<NotFound />} />            
         </Routes>
     </>
   );

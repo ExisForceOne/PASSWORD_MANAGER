@@ -1,0 +1,28 @@
+.container {
+    font-size: 1.0rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient);
+    z-index: 99;
+}
+
+.container>a>button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: 5px solid white;
+    color: white;
+}
+
+
+@media (min-width: 380px) {
+    .container {
+        font-size: 1.5rem;
+    }
+}
