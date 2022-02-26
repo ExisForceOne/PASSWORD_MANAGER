@@ -3,42 +3,42 @@ import style from './Input.module.css'
 function Input(props){
 
     return (
-        <>
-        <label className={style.label} htmlFor={props.id}>{props.label}</label>
-        <input 
-            className={style.input}
-            id={props.id}
-            name={props.name}
-            type={props.type}
-            onChange={props.onChange}
-            onBlur={props.onBlur}
-            value={props.value}
+        <div className={style.container}>
+            <label className={style.label} htmlFor={props.id}>{props.label}</label>
+            <input 
+                className={style.input}
+                id={props.id}
+                name={props.name}
+                type={props.type}
+                onChange={props.onChange}
+                onBlur={props.onBlur}
+                value={props.value}
 
-            step={props.step}
-            min={props.min}
-            />
-        {props.error ? <div className={style.error}>{props.error}</div> : null}
-        </>
+                step={props.step}
+                min={props.min}
+                />
+            {props.error ? <div className={style.error}>{props.error}</div> : null}
+        </div>
     )
 }
 
 function Textarea(props){
 
     return (
-        <>
-        <label className={style.label} htmlFor={props.id}>{props.label}</label>
-        <textarea 
-            className={style.input} 
-            cols="30" 
-            rows="5"
-            id={props.id}
-            name={props.name}
-            onChange={props.onChange}
-            onBlur={props.onBlur}
-            value={props.value}
-            />
-        {props.error ? <div className={style.error}>{props.error}</div> : null}
-        </>
+        <div className={style.container}>
+            <label className={style.label} htmlFor={props.id}>{props.label}</label>
+            <textarea 
+                className={style.input} 
+                cols="30" 
+                rows="5"
+                id={props.id}
+                name={props.name}
+                onChange={props.onChange}
+                onBlur={props.onBlur}
+                value={props.value}
+                />
+            {props.error ? <div className={style.error}>{props.error}</div> : null}
+        </div>
     )
 }
 
@@ -46,7 +46,7 @@ function Textarea(props){
 function InputCheckbox(props){
 
     return (
-        <div>
+        <div className={style.container}>
             <input 
             className={style.checkbox} 
             type="checkbox" 
