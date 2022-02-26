@@ -13,10 +13,11 @@ export default function BackBtn(props){
 
     return (
         <button
+        type='button'
         style={styledBtn}
         onClick={()=>props.onClick()}
         >
-            {props.msg}
+            {props.text}
         </button>
     )
       

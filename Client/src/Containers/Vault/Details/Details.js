@@ -26,7 +26,7 @@ export default function Details(props){
 
         <BackBtn
          onClick={()=>{navigate(-1)}}
-         msg={'back'} 
+         text={'back'} 
          />
 
         <Login value={data.login}>

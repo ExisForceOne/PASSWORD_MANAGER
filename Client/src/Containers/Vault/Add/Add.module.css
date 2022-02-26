@@ -1,0 +1,8 @@
+.container {
+    padding: 10px
+}
+
+.infoBar {
+    border-bottom: 1px dashed black;
+    margin-bottom: 5px;
+}
