@@ -1,19 +1,23 @@
 import style from './Add.module.css'
 
 
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
-import { useEffect } from 'react'
 
 import Form from '../../../Components/Forms/Form/Form'
 import { Input, Textarea } from '../../../Components/Forms/Input/Input'
 import BtnContainer from '../../../Components/UI/BtnContainer/BtnContainer'
+import VisibleBtn from '../../../Components/UI/VisibleBtn/VisibleBtn'
+
 import randomHEX from '../../../Helpers/randomHEX'
+
+
 
 
 export default function Add(props){
     let navigate = useNavigate()
-
+    const [passwordIsVisible, setPasswordIsVisible] = useState(false)
 
     const formik = useFormik({
         initialValues: {
@@ -61,15 +65,23 @@ export default function Add(props){
                 onChange={formik.handleChange}
                 value={formik.values.login}
             />
+            <div className={style.passContainer}>
 
-            <Input
-                label={'Password:'}
-                id={'password'}
-                name={'password'}
-                type={'password'}
-                onChange={formik.handleChange}
-                value={formik.values.password}
-            />
+                <Input
+                    label={'Password:'}
+                    id={'password'}
+                    name={'password'}
+                    type={
+                            passwordIsVisible
+                            ? 'text'
+                            : 'password'
+                        }
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                />
+                <VisibleBtn state={{passwordIsVisible, setPasswordIsVisible}} />
+            </div>
+
 
 
             <Input

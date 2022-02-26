@@ -22,6 +22,7 @@ export default function VisibleBtn(props){
 
     return (
         <button
+         type='button'
          style={styledBtn}
          onClick={()=>{onClickHandler()}} 
         >

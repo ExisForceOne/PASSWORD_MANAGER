@@ -6,3 +6,12 @@
     border-bottom: 1px dashed black;
     margin-bottom: 5px;
 }
+
+.passContainer {
+    display: flex;
+    align-items: flex-end;
+}
+
+.passContainer>*:nth-child(1) {
+    flex: 1;
+}
