@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom"
 
 import Header from "../../../Components/Details/Header/Header"
 import { Login, Password, Url, Desc} from "../../../Components/Details/Section/Section"
-import BackBtn from "../../../Components/UI/BackBtn/BackBtn"
-import CopyBtn from '../../../Components/UI/CopyBtn/CopyBtn'
-import VisibleBtn from "../../../Components/UI/VisibleBtn/VisibleBtn"
+import BackBtn from "../../../Components/UI/Buttons/BackBtn/BackBtn"
+import CopyBtn from '../../../Components/UI/Buttons/CopyBtn/CopyBtn'
+import VisibleBtn from "../../../Components/UI/Buttons/VisibleBtn/VisibleBtn"
 import fakeData from '../../../fakeData'
 
 

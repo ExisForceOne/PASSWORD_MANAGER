@@ -1,6 +1,6 @@
 import style from './BtnContainer.module.css'
-import BackBtn from '../BackBtn/BackBtn'
-import LoadingSubmitBtn from '../LoadingSubmitBtn/LoadingSubmitBtn'
+import BackBtn from '../Buttons/BackBtn/BackBtn'
+import LoadingSubmitBtn from '../Buttons/LoadingSubmitBtn/LoadingSubmitBtn'
 
 export default function BtnContainer(props){
 

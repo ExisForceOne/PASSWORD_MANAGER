@@ -5,7 +5,7 @@ import yupValidators from "../../../Helpers/yupValidators";
 
 import Form from "../../../Components/Forms/Form/Form";
 import { Input } from "../../../Components/Forms/Input/Input";
-import LoadingSubmitBtn from "../../../Components/UI/LoadingSubmitBtn/LoadingSubmitBtn";
+import LoadingSubmitBtn from "../../../Components/UI/Buttons/LoadingSubmitBtn/LoadingSubmitBtn";
 import AuthLink from "../../../Components/Login&Register/AuthLink/Link";
 
 function Register() {

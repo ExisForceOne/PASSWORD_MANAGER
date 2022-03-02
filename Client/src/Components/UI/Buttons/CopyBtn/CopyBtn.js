@@ -1,5 +1,5 @@
 import style from './CopyBtn.module.css'
-import copyToClipboard from '../../../Helpers/copyToClipboard'
+import copyToClipboard from '../../../../Helpers/copyToClipboard'
 import { FaCopy as CopyIcon } from 'react-icons/fa'
 import { useRef } from 'react'
 
