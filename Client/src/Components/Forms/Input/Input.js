@@ -7,15 +7,7 @@ function Input(props){
             <label className={style.label} htmlFor={props.id}>{props.label}</label>
             <input 
                 className={style.input}
-                id={props.id}
-                name={props.name}
-                type={props.type}
-                onChange={props.onChange}
-                onBlur={props.onBlur}
-                value={props.value}
-
-                step={props.step}
-                min={props.min}
+                {...props}
                 />
             {props.error ? <div className={style.error}>{props.error}</div> : null}
         </div>
@@ -31,17 +23,27 @@ function Textarea(props){
                 className={style.input} 
                 cols="30" 
                 rows="5"
-                id={props.id}
-                name={props.name}
-                onChange={props.onChange}
-                onBlur={props.onBlur}
-                value={props.value}
+                {...props}
                 />
             {props.error ? <div className={style.error}>{props.error}</div> : null}
         </div>
     )
 }
 
+
+function Slider(props){
+
+    return (
+
+    <div className={style.container}>
+        <label className={style.label} htmlFor={props.id}>{props.value} {props.label}</label>
+        <input 
+            className={style.slider} 
+            {...props}
+            />
+    </div>
+    )
+}
 
 function InputCheckbox(props){
 
@@ -62,4 +64,4 @@ function InputCheckbox(props){
 
 
 
-export { Input, Textarea, InputCheckbox }
+export { Input, Textarea, Slider, InputCheckbox }
