@@ -45,17 +45,14 @@ function Slider(props){
     )
 }
 
-function InputCheckbox(props){
+function Checkbox(props){
 
     return (
-        <div className={style.container}>
+        <div>
             <input 
             className={style.checkbox} 
             type="checkbox" 
-            id={props.id} 
-            onChange={props.onChange}
-            checked={props.checked}
-            value={props.value}
+            {...props}
             />
             <label className={style.label} htmlFor={props.id}>{props.label}</label>
         </div>
@@ -64,4 +61,4 @@ function InputCheckbox(props){
 
 
 
-export { Input, Textarea, Slider, InputCheckbox }
+export { Input, Textarea, Slider, Checkbox }
