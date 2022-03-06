@@ -1,6 +1,6 @@
 import style from './SubmitAndCancelBtnContainer.module.css'
-import BackBtn from '../Buttons/BackBtn/BackBtn'
-import LoadingSubmitBtn from '../Buttons/LoadingSubmitBtn/LoadingSubmitBtn'
+import BackBtn from '../BackBtn/BackBtn'
+import LoadingSubmitBtn from '../LoadingSubmitBtn/LoadingSubmitBtn'
 
 export default function SubmitAndCancelBtnContainer(props){
 

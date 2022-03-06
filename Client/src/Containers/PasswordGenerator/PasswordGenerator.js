@@ -1,35 +1,47 @@
 import style from './PasswordGenerator.module.css'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 import generatePassword from '../../Helpers/generatePassword'
 
 import Form from '../../Components/Forms/Form/Form'
 import { Checkbox, Slider } from '../../Components/Forms/Input/Input'
-import SubmitAndCancelBtnContainer from '../../Components/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
-
+import PasswordContainer from '../../Components/PasswordGenerator/PasswordContainer/PasswordContainer'
+import CheckboxContainer from '../../Components/PasswordGenerator/CheckboxContainer/CheckboxContainer'
+import SubmitAndCancelBtnContainer from '../../Components/Buttons/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
+import GeneratePasswordBtn from '../../Components/Buttons/GeneratePasswordBtn/GeneratePasswordBtn'
 
 export default function PasswordGenerator(props){
 
-    const [lenght, setLenght] = useState(32)
+    const checkboxesRef = useRef()
 
+
+
+    const [lenght, setLenght] = useState(32)
     const [includeChars, setIncludeChars] = useState({
         lower: true,
         upper: true,
         number: true,
         special: true,
     }) 
-
     const [password, setPassword] = useState( generatePassword(includeChars, lenght) )
 
 
+    useEffect(()=>{
+        const [...checkboxes] = checkboxesRef.current.querySelectorAll('div>input');
+
+        const activeCheckboxes = checkboxes.filter(item => item.checked);
+     
+        if (activeCheckboxes.length === 1){
+            activeCheckboxes[0].disabled = true;
+        } else {
+           activeCheckboxes.forEach(item => item.disabled=false);
+        }
+
+    }, [includeChars]) //alwaus one checkbox active
+
     const onSubmit = (e) => {
         e.preventDefault()
-        props.onSubmit(password)
-        props.close()
-    }
-
-    const generate = () => { 
-        setPassword(generatePassword(includeChars, lenght))
+        
     }
 
     function checkboxHandler(e){
@@ -45,8 +57,7 @@ export default function PasswordGenerator(props){
         <div className={style.container}>
             <h4>Generate Password</h4>
 
-            <p className={style.password}>{password}</p>
-
+            <PasswordContainer>{password}</PasswordContainer>
 
             <Form onSubmit={(e)=>onSubmit(e)}>
                 <Slider
@@ -60,40 +71,48 @@ export default function PasswordGenerator(props){
                 onChange={e=>setLenght(e.target.value)}
                 />
                 
-                <p style={{margin: '15px 0 5px'}}>Inlude:</p>
-                <Checkbox
-                label='Lowercase'
-                id='lower'
-                value='lower'
-                onChange={(e)=>{checkboxHandler(e)}}
-                checked={includeChars.lower}
-                />
-                
-                <Checkbox
-                label='Uppercase'
-                id='upper'
-                value='upper'
-                onChange={(e)=>{checkboxHandler(e)}}
-                checked={includeChars.upper}
-                />
-                
-                <Checkbox
-                label='Numbers'
-                id='number'
-                value='number'
-                onChange={(e)=>{checkboxHandler(e)}}
-                checked={includeChars.number}
-                />
+                <CheckboxContainer ref={checkboxesRef}>
 
-                <Checkbox
-                label='Special Characters'
-                id='special'
-                value='special'
-                onChange={(e)=>{checkboxHandler(e)}}
-                checked={includeChars.special}
+                    <Checkbox
+                    label='Lowercase'
+                    id='lower'
+                    value='lower'
+                    onChange={(e)=>{checkboxHandler(e)}}
+                    checked={includeChars.lower}
+                    />
+                    
+                    <Checkbox
+                    label='Uppercase'
+                    id='upper'
+                    value='upper'
+                    onChange={(e)=>{checkboxHandler(e)}}
+                    checked={includeChars.upper}
+                    />
+                    
+                    <Checkbox
+                    label='Numbers'
+                    id='number'
+                    value='number'
+                    onChange={(e)=>{checkboxHandler(e)}}
+                    checked={includeChars.number}
+                    />
+
+                    <Checkbox
+                    label='Special Characters'
+                    id='special'
+                    value='special'
+                    onChange={(e)=>{checkboxHandler(e)}}
+                    checked={includeChars.special}
+                    />
+
+                </CheckboxContainer>
+
+
+                <GeneratePasswordBtn 
+                onClick={()=>{ 
+                    setPassword(generatePassword(includeChars, lenght))
+                 }} 
                 />
-                
-                <button onClick={()=>{generate()}} type='button'>GENERATE</button>
 
                 <SubmitAndCancelBtnContainer 
                 backText={'Cancel'}

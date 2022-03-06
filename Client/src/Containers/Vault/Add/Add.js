@@ -6,7 +6,7 @@ import { useFormik } from 'formik'
 
 import Form from '../../../Components/Forms/Form/Form'
 import { Input, Textarea } from '../../../Components/Forms/Input/Input'
-import SubmitAndCancelBtnContainer from '../../../Components/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
+import SubmitAndCancelBtnContainer from '../../../Components/Buttons/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
 import VisibleBtn from '../../../Components/Buttons/VisibleBtn/VisibleBtn'
 import OpenGeneratorBtn from '../../../Components/Buttons/OpenGeneratorBtn/OpenGeneratorBtn'
 
