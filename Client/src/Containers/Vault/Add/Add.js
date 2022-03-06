@@ -1,36 +1,38 @@
 import style from './Add.module.css'
 
-
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 
 import Form from '../../../Components/Forms/Form/Form'
 import { Input, Textarea } from '../../../Components/Forms/Input/Input'
-import BtnContainer from '../../../Components/UI/BtnContainer/BtnContainer'
-import VisibleBtn from '../../../Components/UI/VisibleBtn/VisibleBtn'
+import BtnContainer from '../../../Components/BtnContainer/BtnContainer'
+import VisibleBtn from '../../../Components/Buttons/VisibleBtn/VisibleBtn'
+import OpenGeneratorBtn from '../../../Components/Buttons/OpenGeneratorBtn/OpenGeneratorBtn'
 
 import randomHEX from '../../../Helpers/randomHEX'
+import PasswordGenerator from '../../PasswordGenerator/PasswordGenerator'
 
 
 
 
 export default function Add(props){
     let navigate = useNavigate()
+
     const [passwordIsVisible, setPasswordIsVisible] = useState(false)
+    const [generatorIsVisible, setGeneratorIsVisible] = useState(false)
 
     const formik = useFormik({
         initialValues: {
             name: 'name',
             login: 'login',
             password: 'dupa',
-            color: '#FF0000',
+            color: randomHEX(),
             url: 'google',
             desc: 'opis'
         },
-        onSubmit: values => submitHandler(values)
+        onSubmit: values => submitHandler(values),
     })
-
 
     function submitHandler(values){
         console.log(values)
@@ -38,12 +40,23 @@ export default function Add(props){
 
     useEffect(()=>{
         setTimeout(()=>{
-            console.log(randomHEX())
+            // console.log('zmiana nejma')
+            // formik.setFieldValue("name", 'name po zmianie')
         },1500)
     }, [])
+
     return (
         <div className={style.container}>
-
+            
+            {
+                generatorIsVisible
+                ?   <PasswordGenerator 
+                        close={()=>setGeneratorIsVisible(false)}
+                        onSubmit={(value)=>formik.setFieldValue("password", value)}
+                    />
+                : null
+            }            
+            
             <Form title={'Add new key'} onSubmit={formik.handleSubmit}>
 
             <p className={style.infoBar}>Required:</p>
@@ -65,8 +78,8 @@ export default function Add(props){
                 onChange={formik.handleChange}
                 value={formik.values.login}
             />
-            <div className={style.passContainer}>
 
+            <div className={style.passContainer}>
                 <Input
                     label={'Password:'}
                     id={'password'}
@@ -80,6 +93,7 @@ export default function Add(props){
                     value={formik.values.password}
                 />
                 <VisibleBtn state={{passwordIsVisible, setPasswordIsVisible}} />
+                <OpenGeneratorBtn onClick={()=>setGeneratorIsVisible(true)} />
             </div>
 
 
