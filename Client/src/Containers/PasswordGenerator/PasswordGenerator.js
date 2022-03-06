@@ -1,8 +1,8 @@
-import style from './PasswordGenerator.module.css'
 import { useState, useRef, useEffect } from 'react'
 
 import generatePassword from '../../Helpers/generatePassword'
 
+import FullScreenModal from '../../Layout/FullScreenModal/FullScreenModal'
 import Form from '../../Components/Forms/Form/Form'
 import { Checkbox, Slider } from '../../Components/Forms/Input/Input'
 import PasswordContainer from '../../Components/PasswordGenerator/PasswordContainer/PasswordContainer'
@@ -41,7 +41,8 @@ export default function PasswordGenerator(props){
 
     const onSubmit = (e) => {
         e.preventDefault()
-        
+        props.onSubmit(password)
+        props.close()
     }
 
     function checkboxHandler(e){
@@ -54,8 +55,7 @@ export default function PasswordGenerator(props){
 
 
     return (
-        <div className={style.container}>
-            <h4>Generate Password</h4>
+        <FullScreenModal title='Generate Password'>
 
             <PasswordContainer>{password}</PasswordContainer>
 
@@ -122,6 +122,6 @@ export default function PasswordGenerator(props){
 
             </Form>
 
-        </div>
+        </FullScreenModal>
     )
 }

@@ -1,5 +1,5 @@
 import { forwardRef } from "react"
-
+import style from './CheckboxContainer.module.css'
 
 const CheckboxContainer = forwardRef( (props, ref)=>{
 
@@ -10,7 +10,7 @@ const CheckboxContainer = forwardRef( (props, ref)=>{
 
 
     return (
-        <div style={styledDiv} ref={ref}>
+        <div className={style.container} ref={ref}>
             <p>Include:</p>
         
             {props.children}
