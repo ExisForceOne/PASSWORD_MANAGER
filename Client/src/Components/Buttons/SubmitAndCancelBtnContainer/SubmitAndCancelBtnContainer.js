@@ -1,8 +1,8 @@
-import style from './BtnContainer.module.css'
+import style from './SubmitAndCancelBtnContainer.module.css'
 import BackBtn from '../Buttons/BackBtn/BackBtn'
 import LoadingSubmitBtn from '../Buttons/LoadingSubmitBtn/LoadingSubmitBtn'
 
-export default function BtnContainer(props){
+export default function SubmitAndCancelBtnContainer(props){
 
     return (
     <div className={style.btnContainer}>

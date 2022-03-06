@@ -5,7 +5,7 @@ import generatePassword from '../../Helpers/generatePassword'
 
 import Form from '../../Components/Forms/Form/Form'
 import { Checkbox, Slider } from '../../Components/Forms/Input/Input'
-import BtnContainer from '../../Components/BtnContainer/BtnContainer'
+import SubmitAndCancelBtnContainer from '../../Components/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
 
 
 export default function PasswordGenerator(props){
@@ -95,7 +95,7 @@ export default function PasswordGenerator(props){
                 
                 <button onClick={()=>{generate()}} type='button'>GENERATE</button>
 
-                <BtnContainer 
+                <SubmitAndCancelBtnContainer 
                 backText={'Cancel'}
                 backOnClick={()=>{props.close()}}
                 submitText={'Use'}

@@ -6,7 +6,7 @@ import { useFormik } from 'formik'
 
 import Form from '../../../Components/Forms/Form/Form'
 import { Input, Textarea } from '../../../Components/Forms/Input/Input'
-import BtnContainer from '../../../Components/BtnContainer/BtnContainer'
+import SubmitAndCancelBtnContainer from '../../../Components/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
 import VisibleBtn from '../../../Components/Buttons/VisibleBtn/VisibleBtn'
 import OpenGeneratorBtn from '../../../Components/Buttons/OpenGeneratorBtn/OpenGeneratorBtn'
 
@@ -126,7 +126,7 @@ export default function Add(props){
                 value={formik.values.desc}
             />
 
-            <BtnContainer
+            <SubmitAndCancelBtnContainer
                 backText={'Cancel'}
                 backOnClick={()=>{navigate(-1)}}
                 submitText={'Add'}

@@ -6,7 +6,7 @@ import yupValidators from "../../../Helpers/yupValidators";
 import Form from "../../../Components/Forms/Form/Form";
 import { Input } from "../../../Components/Forms/Input/Input";
 import LoadingSubmitBtn from "../../../Components/Buttons/LoadingSubmitBtn/LoadingSubmitBtn";
-import AuthLink from "../../../Components/Login&Register/AuthLink/Link";
+import AuthLink from "../../../Components/Login&Register/AuthLink/AuthLink";
 
 function Register() {
     let navigate = useNavigate()

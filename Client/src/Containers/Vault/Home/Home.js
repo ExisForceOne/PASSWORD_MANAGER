@@ -5,7 +5,7 @@ import Loading from '../../../Components/Loading/Loading'
 import SearchBar from '../../../Components/SearchBar/SearchBar'
 import PassContainer from '../../../Components/Vault/PassContainer/PassContainer'
 import PassItem from '../../../Components/Vault/PassItem/PassItem'
-import AddNewKeyBtn from '../../../Components/Vault/AddNewKeyBtn/AddNewKeyBtn'
+import AddNewKeyBtn from '../../../Components/Buttons/AddNewKeyBtn/AddNewKeyBtn'
 import fakeData from '../../../fakeData'
 
 
