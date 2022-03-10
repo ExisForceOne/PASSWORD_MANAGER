@@ -1,6 +1,6 @@
 import style from './Add.module.css'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 
@@ -9,9 +9,11 @@ import { Input, Textarea } from '../../../Components/Forms/Input/Input'
 import SubmitAndCancelBtnContainer from '../../../Components/Buttons/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
 import VisibleBtn from '../../../Components/Buttons/VisibleBtn/VisibleBtn'
 import OpenGeneratorBtn from '../../../Components/Buttons/OpenGeneratorBtn/OpenGeneratorBtn'
+import OpenColorPickerBtn from '../../../Components/Buttons/OpenColorPickerBtn/OpenColorPickerBtn'
 
-import randomHEX from '../../../Helpers/randomHEX'
+import randomHSL from '../../../Helpers/randomHSL'
 import PasswordGenerator from '../../PasswordGenerator/PasswordGenerator'
+import ColorPicker from '../../ColorPicker/ColorPicker'
 
 
 
@@ -19,15 +21,17 @@ import PasswordGenerator from '../../PasswordGenerator/PasswordGenerator'
 export default function Add(props){
     let navigate = useNavigate()
 
+    //one state?
     const [passwordIsVisible, setPasswordIsVisible] = useState(false)
     const [generatorIsVisible, setGeneratorIsVisible] = useState(false)
+    const [colorPickerIsVisible, setColorPickerIsVisible] = useState(false)
 
     const formik = useFormik({
         initialValues: {
             name: 'name',
             login: 'login',
             password: 'dupa',
-            color: randomHEX(),
+            color: randomHSL(),
             url: 'google',
             desc: 'opis'
         },
@@ -38,16 +42,9 @@ export default function Add(props){
         console.log(values)
     }
 
-    useEffect(()=>{
-        setTimeout(()=>{
-            // console.log('zmiana nejma')
-            // formik.setFieldValue("name", 'name po zmianie')
-        },1500)
-    }, [])
-
     return (
         <div className={style.container}>
-            
+
             {
                 generatorIsVisible
                 ?   <PasswordGenerator 
@@ -56,81 +53,85 @@ export default function Add(props){
                     />
                 : null
             }            
-            
+
+            {
+                colorPickerIsVisible
+                ?   <ColorPicker 
+                        color={formik.values.color}
+                        close={()=>setColorPickerIsVisible(false)}
+                        onSubmit={(value)=>formik.setFieldValue("color", value)}
+                    />
+                : null
+            }        
+
             <Form title={'Add new key'} onSubmit={formik.handleSubmit}>
 
-            <p className={style.infoBar}>Required:</p>
+                <p className={style.infoBar}>Required:</p>
 
-            <Input
-                label={'Name:'}
-                id={'name'}
-                name={'name'}
-                type={'text'}
-                onChange={formik.handleChange}
-                value={formik.values.name}
-            />
-
-            <Input
-                label={'Login:'}
-                id={'login'}
-                name={'login'}
-                type={'text'}
-                onChange={formik.handleChange}
-                value={formik.values.login}
-            />
-
-            <div className={style.passContainer}>
                 <Input
-                    label={'Password:'}
-                    id={'password'}
-                    name={'password'}
-                    type={
-                            passwordIsVisible
-                            ? 'text'
-                            : 'password'
-                        }
+                    label={'Name:'}
+                    id={'name'}
+                    name={'name'}
+                    type={'text'}
                     onChange={formik.handleChange}
-                    value={formik.values.password}
+                    value={formik.values.name}
                 />
-                <VisibleBtn state={{passwordIsVisible, setPasswordIsVisible}} />
-                <OpenGeneratorBtn onClick={()=>setGeneratorIsVisible(true)} />
-            </div>
+
+                <Input
+                    label={'Login:'}
+                    id={'login'}
+                    name={'login'}
+                    type={'text'}
+                    onChange={formik.handleChange}
+                    value={formik.values.login}
+                />
+
+                <div className={style.passContainer}>
+                    <Input
+                        label={'Password:'}
+                        id={'password'}
+                        name={'password'}
+                        type={
+                                passwordIsVisible
+                                ? 'text'
+                                : 'password'
+                            }
+                        onChange={formik.handleChange}
+                        value={formik.values.password}
+                    />
+                    <VisibleBtn state={{passwordIsVisible, setPasswordIsVisible}} />
+                    <OpenGeneratorBtn onClick={()=>setGeneratorIsVisible(true)} />
+                </div>
 
 
+                <p>Color:</p>
+                <OpenColorPickerBtn color={formik.values.color} onClick={()=>setColorPickerIsVisible(true)} />
 
-            <Input
-                label={'Color:'}
-                id={'color'}
-                name={'color'}
-                type={'color'}
-                onChange={formik.handleChange}
-                value={formik.values.color}
-            />
-            
-            <p className={style.infoBar}>Optional:</p>
-            
-            <Input
-                label={'Website URL:'}
-                id={'ulr'}
-                name={'url'}
-                type={'text'}
-                onChange={formik.handleChange}
-                value={formik.values.url}
-            />
+                
+                <p className={style.infoBar}>Optional:</p>
+                
+                <Input
+                    label={'Website URL:'}
+                    id={'ulr'}
+                    name={'url'}
+                    type={'text'}
+                    onChange={formik.handleChange}
+                    value={formik.values.url}
+                />
 
-            <Textarea
-                label={'Description:'}
-                id={'desc'}
-                name={'desc'}
-                onChange={formik.handleChange}
-                value={formik.values.desc}
-            />
+                <Textarea
+                    label={'Description:'}
+                    id={'desc'}
+                    name={'desc'}
+                    onChange={formik.handleChange}
+                    value={formik.values.desc}
+                />
 
-            <SubmitAndCancelBtnContainer
-                backText={'Cancel'}
-                backOnClick={()=>{navigate(-1)}}
-                submitText={'Add'}
-            />
+                <SubmitAndCancelBtnContainer
+                    backText={'Cancel'}
+                    backOnClick={()=>{navigate(-1)}}
+                    submitText={'Add'}
+                />
 
             </Form>
         </div>

@@ -6,7 +6,7 @@ const getHslAttributes = {
     saturation(color){
         return color.slice(4,-1).split(',')[1].slice(0,-1)
     },
-    lightning(color){
+    lightness(color){
         return color.slice(4,-1).split(',')[2].slice(0,-1)
     }
 
