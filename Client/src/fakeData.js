@@ -6,13 +6,13 @@ const data = [
         password: 'Tajne123',
         url: 'https://www.onet.pl/',
         desc: 'fajne to jest onaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaa et',
-        color: 'green',
+        color: 'hsl(120, 100%, 25%)',
         fav: true
     },
     {
         _id: 2,
         name: 'Test2',
-        color: '#cdcdcd',
+        color: 'hsl(0, 0%, 80%)',
         login: 'd.swiadek@vida.pl',
         password: 'Tajne12345',
         url: 'https://stackoverflow.com',
@@ -26,19 +26,19 @@ const data = [
         password: 'Tajne12345',
         desc: null,
         url: null,
-        color: 'black',
+        color: 'hsl(0, 0%, 0%)',
         fav: false,
     },
     {
         _id: 4,
         name: 'Test4',
-        color: 'pink',
+        color: 'hsl(350, 100%, 88%)',
         fav: true,
     },
     {
         _id: 5,
         name: 'Test5',
-        color: 'violet',
+        color: 'hsl(300, 76%, 72%)',
         fav: false,
     },
 ]

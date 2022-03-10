@@ -60,6 +60,7 @@ export default function PasswordGenerator(props){
             <PasswordContainer>{password}</PasswordContainer>
 
             <Form onSubmit={(e)=>onSubmit(e)}>
+                
                 <Slider
                 value={lenght}
                 label='Characters'
