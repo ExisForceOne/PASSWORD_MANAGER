@@ -34,14 +34,16 @@ function Textarea(props){
 function Slider(props){
 
     return (
-
-    <div className={style.container}>
-        <label className={style.label} htmlFor={props.id}>{props.value} {props.label}</label>
-        <input 
-            className={style.slider} 
-            {...props}
-            />
-    </div>
+        <div className={style.container}>
+            <label className={style.label} htmlFor={props.id}>{props.label}: {props.value}</label>
+            <input 
+                className={style.slider} 
+                style={{background: props.color}}
+                type='range'
+                step='1'
+                {...props}
+                />
+        </div>
     )
 }
 

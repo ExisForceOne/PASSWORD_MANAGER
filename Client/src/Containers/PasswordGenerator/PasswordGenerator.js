@@ -64,9 +64,7 @@ export default function PasswordGenerator(props){
                 <Slider
                 value={lenght}
                 label='Characters'
-                type='range'
                 id='chars'
-                step='1'
                 min='4'
                 max='32'
                 onChange={e=>setLenght(e.target.value)}
