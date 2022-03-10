@@ -10,9 +10,27 @@
 
 .passContainer {
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    /* align-items: flex-end; */
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .passContainer>*:nth-child(1) {
     flex: 1;
+}
+
+@media (min-width: 440px) {
+    .passContainer {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+
+    .btnContainer {
+        justify-content: flex-start;
+    }
 }

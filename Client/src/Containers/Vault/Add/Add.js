@@ -22,9 +22,14 @@ export default function Add(props){
     let navigate = useNavigate()
 
     //one state?
+
+    const [isVisible, setIsVisible] = useState({
+        password: false,
+        generator: false,
+        colorPicker: false,
+    })
     const [passwordIsVisible, setPasswordIsVisible] = useState(false)
-    const [generatorIsVisible, setGeneratorIsVisible] = useState(false)
-    const [colorPickerIsVisible, setColorPickerIsVisible] = useState(false)
+
 
     const formik = useFormik({
         initialValues: {
@@ -46,19 +51,19 @@ export default function Add(props){
         <div className={style.container}>
 
             {
-                generatorIsVisible
+                isVisible.generator
                 ?   <PasswordGenerator 
-                        close={()=>setGeneratorIsVisible(false)}
+                        close={()=>setIsVisible({...isVisible, generator: false})}
                         onSubmit={(value)=>formik.setFieldValue("password", value)}
                     />
                 : null
             }            
 
             {
-                colorPickerIsVisible
+                isVisible.colorPicker
                 ?   <ColorPicker 
                         color={formik.values.color}
-                        close={()=>setColorPickerIsVisible(false)}
+                        close={()=>setIsVisible({...isVisible, colorPicker: false})}
                         onSubmit={(value)=>formik.setFieldValue("color", value)}
                     />
                 : null
@@ -99,13 +104,15 @@ export default function Add(props){
                         onChange={formik.handleChange}
                         value={formik.values.password}
                     />
-                    <VisibleBtn state={{passwordIsVisible, setPasswordIsVisible}} />
-                    <OpenGeneratorBtn onClick={()=>setGeneratorIsVisible(true)} />
+                    <div className={style.btnContainer}>
+                        <VisibleBtn state={{passwordIsVisible, setPasswordIsVisible}} />
+                        <OpenGeneratorBtn onClick={()=>setIsVisible({...isVisible, generator: true})} />
+                    </div>
                 </div>
 
 
                 <p>Color:</p>
-                <OpenColorPickerBtn color={formik.values.color} onClick={()=>setColorPickerIsVisible(true)} />
+                <OpenColorPickerBtn color={formik.values.color} onClick={()=>setIsVisible({...isVisible, colorPicker: true})} />
 
                 
                 <p className={style.infoBar}>Optional:</p>
