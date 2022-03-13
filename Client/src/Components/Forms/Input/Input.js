@@ -50,7 +50,7 @@ function Slider(props){
 function Checkbox(props){
 
     return (
-        <div>
+        <div className={style.container_checkbox}>
             <input 
             className={style.checkbox} 
             type="checkbox" 

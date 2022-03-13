@@ -1,8 +1,14 @@
-.container {
+.container,
+.container_checkbox {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-bottom: 10px;
+}
+
+.container_checkbox {
+    flex-direction: row;
+    align-items: center;
 }
 
 .label {
@@ -17,7 +23,8 @@
 
 .checkbox {
     margin-right: 15px;
-    transform: scale(2);
+    width: 25px;
+    height: 25px;
 }
 
 .error {
