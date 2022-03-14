@@ -21,8 +21,6 @@ import ColorPicker from '../../ColorPicker/ColorPicker'
 export default function Add(props){
     let navigate = useNavigate()
 
-    //one state?
-
     const [passwordIsVisible, setPasswordIsVisible] = useState(false)
     const [generatorIsVisible, setGeneratorIsVisible] = useState(false)
     const [colorPickerIsVisible, setColorPickerIsVisible] = useState(false)
