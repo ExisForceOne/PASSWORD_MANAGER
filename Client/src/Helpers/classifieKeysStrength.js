@@ -128,7 +128,7 @@ function checkPasswordStrength(item){
 }
 
 
-function passwordStrengthMetter(data){
+function classifieKeysStrength(data){
 
     data.forEach(item=> checkPasswordStrength(item))
 
@@ -141,4 +141,4 @@ function passwordStrengthMetter(data){
     }
 }
 
-export default passwordStrengthMetter
+export default classifieKeysStrength
