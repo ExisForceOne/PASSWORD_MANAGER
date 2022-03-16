@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 import Loading from '../../../Components/Loading/Loading'
 import SearchBar from '../../../Components/SearchBar/SearchBar'
@@ -50,13 +49,13 @@ export default function Home(props){
         >
             {
             data.map(x=>
-                <Link key={x._id} to={`details`} >
                     <PassItem
+                    key={x._id}
                     name={x.name}
                     color={x.color}
                     fav={x.fav} 
                     />
-                </Link>)
+                )
             }
         </PassContainer>
         </>
