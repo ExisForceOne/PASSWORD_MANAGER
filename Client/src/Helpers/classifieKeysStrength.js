@@ -5,14 +5,14 @@
 function lengthWeekness(password){
     if (password.length <=5){
         return {
-            message: 'Password is to short!',
+            message: 'Too short!',
             value: 40,
         }
     }
     else if (password.length <=10){
 
         return {
-            message: 'Password should be longer',
+            message: 'Should be longer',
             value: 15,
         }
     }
@@ -22,7 +22,7 @@ function commonPasswordWeekness(password){
     const commonPasswordList = ['123456','123456789','picture1','password','12345678','111111','123123','12345','1234567890','senha','1234567','qwerty','abc123','Million2','000000','1234','iloveyou','aaron431','password1','QWER123!@#']
     if (commonPasswordList.includes(password)){
         return {
-            message: 'Password is one of the most common password!',
+            message: 'One of the most popular password!',
             value: 40,
         }
     }
@@ -60,12 +60,12 @@ function lookForChar(password,reg,charType){
     const match = password.match(reg) || [];
     if (match.length === 0){
         return {
-            message: `Password dont have ${charType}!`,
+            message: `No ${charType}!`,
             value: 20,
         }
     } else if (match.length<=2){
         return {
-            message : `Password should have more ${charType}`,
+            message : `More ${charType}`,
             value: 5,
         }
     }
@@ -77,7 +77,7 @@ function charRepeatWeekness(password){
 
     if (match.length > 0){
         return {
-            message: 'Password have reapeated character!',
+            message: 'Reapeated character!',
             value: match.length*10,
         }
     }
@@ -133,10 +133,10 @@ function classifieKeysStrength(data){
     data.forEach(item=> checkPasswordStrength(item))
 
     return {
-        weakKeys: data.filter(item => item.strength.rating === 'weak'),
-        moderateKeys: data.filter(item => item.strength.rating === 'moderate'),
-        goodKeys: data.filter(item => item.strength.rating === 'good'),
-        strongKeys: data.filter(item => item.strength.rating === 'strong'),
+        weak: data.filter(item => item.strength.rating === 'weak'),
+        moderate: data.filter(item => item.strength.rating === 'moderate'),
+        good: data.filter(item => item.strength.rating === 'good'),
+        strong: data.filter(item => item.strength.rating === 'strong'),
 
     }
 }
