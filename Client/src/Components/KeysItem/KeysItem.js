@@ -1,9 +1,9 @@
-import style from './PassItem.module.css'
-import changeTextColor from '../../../Helpers/changeTextColor'
+import style from './KeysItem.module.css'
+import changeTextColor from '../../Helpers/changeTextColor'
 import { FaStar } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
-export default function PassItem(props) {
+export default function KeysItem(props) {
 
     const styledItem = {
         backgroundColor: props.color || 'white',

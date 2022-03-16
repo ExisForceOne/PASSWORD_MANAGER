@@ -1,6 +1,6 @@
-import style from './PassContainer.module.css';
+import style from './KeysContainer.module.css';
 
-export default function PassContainer(props){
+export default function KeysContainer(props){
 
     return(
         <>
