@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 
 import Loading from '../../../Components/Loading/Loading'
 import SearchBar from '../../../Components/SearchBar/SearchBar'
-import PassContainer from '../../../Components/Vault/PassContainer/PassContainer'
-import PassItem from '../../../Components/Vault/PassItem/PassItem'
+import KeysContainer from '../../../Components/KeysContainer/KeysContainer'
+import KeysItem from '../../../Components/KeysItem/KeysItem'
 import AddNewKeyBtn from '../../../Components/Buttons/AddNewKeyBtn/AddNewKeyBtn'
 import fakeData from '../../../fakeData'
 
@@ -40,7 +40,7 @@ export default function Home(props){
         <>
         <AddNewKeyBtn />
         <SearchBar onSearch={setTerm} />
-        <PassContainer 
+        <KeysContainer 
             header={
                 term
                 ? `You have ${data.length} matches for "${term}" :`
@@ -49,7 +49,7 @@ export default function Home(props){
         >
             {
             data.map(x=>
-                    <PassItem
+                    <KeysItem
                     key={x._id}
                     name={x.name}
                     color={x.color}
@@ -57,7 +57,7 @@ export default function Home(props){
                     />
                 )
             }
-        </PassContainer>
+        </KeysContainer>
         </>
     )
 }

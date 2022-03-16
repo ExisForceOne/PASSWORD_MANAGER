@@ -6,15 +6,11 @@ import Details from './Details/Details'
 import NotFound from "../../Components/NotFound/NotFound";
 
 
-const container = {
-    width: '100%',
-    fontSize: '1.5rem',
-}
 
 export default function Vault(props){
 
     return (
-        <div style={container}>
+        <div>
             <Routes>
                 <Route path='/' element={<Home />}/>
                 <Route path="add" element={<Add />}/>
