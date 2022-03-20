@@ -30,7 +30,8 @@ export default function Chart(props){
           ],
           borderWidth: 2,
           cutout: '45%',
-          hoverOffset: 10
+          hoverOffset: 11,
+          radius: '95%'
         },
       ],
     }
