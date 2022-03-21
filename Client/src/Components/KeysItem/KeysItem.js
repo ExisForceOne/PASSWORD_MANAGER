@@ -12,7 +12,7 @@ export default function KeysItem(props) {
 
 
     return (
-        <Link to={`details`} >
+        <Link to={`/vault/details`} >
             <div style={styledItem} className={style.item}>
                 <span>{props.name}</span>
                     {
