@@ -44,7 +44,12 @@ export default function Chart(props){
       <div className={style.container}>
         <ul className={style.legend}>
           <p>Total passwords: {sumArrayValues(props.data)}</p>
-          {props.data.map((item, i) => <li key={i}>{props.labels[i]} : {item} </li>)}
+
+          {
+            props.data.map((item, i) =>
+             <li key={i}>{props.labels[i]} : {item} </li>
+             )
+          }
         </ul>
         <div className={style.chart}>
           <Doughnut 

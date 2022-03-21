@@ -133,10 +133,10 @@ function classifieKeysStrength(data){
     data.forEach(item=> checkPasswordStrength(item))
 
     return {
-        weak: data.filter(item => item.strength.rating === 'weak'),
-        moderate: data.filter(item => item.strength.rating === 'moderate'),
-        good: data.filter(item => item.strength.rating === 'good'),
-        strong: data.filter(item => item.strength.rating === 'strong'),
+        Weak: data.filter(item => item.strength.rating === 'weak'),
+        Moderate: data.filter(item => item.strength.rating === 'moderate'),
+        Good: data.filter(item => item.strength.rating === 'good'),
+        Strong: data.filter(item => item.strength.rating === 'strong'),
 
     }
 }
