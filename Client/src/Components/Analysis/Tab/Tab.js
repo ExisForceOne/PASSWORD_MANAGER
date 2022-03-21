@@ -3,12 +3,7 @@ import KeysItem from "../../KeysItem/KeysItem"
 import CollapseWeaknessList from '../CollapseWeaknessList/CollapseWeaknessList'
 
 export default function Tab(props) {
-    console.log(props.data[0].strength.weekness)
-
-    if(props.data[0].strength.weekness.length){
-        console.log('chuj')
-    }
-
+    
     return (
         <KeysContainer 
             header={
