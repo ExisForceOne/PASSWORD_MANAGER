@@ -4,16 +4,16 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 
-import Form from '../../../Components/Forms/Form/Form'
-import { Checkbox, Input, Textarea } from '../../../Components/Forms/Input/Input'
-import SubmitAndCancelBtnContainer from '../../../Components/Buttons/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
-import VisibleBtn from '../../../Components/Buttons/VisibleBtn/VisibleBtn'
-import OpenGeneratorBtn from '../../../Components/Buttons/OpenGeneratorBtn/OpenGeneratorBtn'
-import OpenColorPickerBtn from '../../../Components/Buttons/OpenColorPickerBtn/OpenColorPickerBtn'
+import Form from '../../Components/Forms/Form/Form'
+import { Checkbox, Input, Textarea } from '../../Components/Forms/Input/Input'
+import SubmitAndCancelBtnContainer from '../../Components/Buttons/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
+import VisibleBtn from '../../Components/Buttons/VisibleBtn/VisibleBtn'
+import OpenGeneratorBtn from '../../Components/Buttons/OpenGeneratorBtn/OpenGeneratorBtn'
+import OpenColorPickerBtn from '../../Components/Buttons/OpenColorPickerBtn/OpenColorPickerBtn'
 
-import randomHSL from '../../../Features/randomHSL'
-import PasswordGenerator from '../../PasswordGenerator/PasswordGenerator'
-import ColorPicker from '../../ColorPicker/ColorPicker'
+import randomHSL from '../../Features/randomHSL'
+import PasswordGenerator from '../PasswordGenerator/PasswordGenerator'
+import ColorPicker from '../ColorPicker/ColorPicker'
 
 
 

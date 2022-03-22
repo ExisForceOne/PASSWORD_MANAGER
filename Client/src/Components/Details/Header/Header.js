@@ -17,7 +17,7 @@ export default function Header(props){
                 ? <FaStar className={style.starIcon} />
                 : null
             }
-            <Link to='/vault/edit'>
+            <Link to='/edit'>
                 <button>
                 edit
                 <RiEdit2Fill className={style.editIcon} />    

@@ -21,7 +21,7 @@ export default function AddNewKeyBtn(props){
 
 
     return (
-        <Link to='add'>
+        <Link to='/add'>
             <button style={styledBtn}>Add <PlusIcon style={styledIcon} /></button>
         </Link>
     )
