@@ -34,7 +34,7 @@ export default function Analysis(props){
 
 
     if(!analyzedKeys) {
-        return <div><Loading /></div>
+        return <Loading />
     }
 
 

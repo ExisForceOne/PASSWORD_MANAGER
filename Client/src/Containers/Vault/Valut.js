@@ -27,7 +27,6 @@ export default function Valut(props){
             .toLowerCase()
             .includes(term.toLowerCase()))
 
-        console.log(newData)
         setData(newData)
     }, [term])
 
