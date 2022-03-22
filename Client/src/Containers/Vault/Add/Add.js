@@ -11,7 +11,7 @@ import VisibleBtn from '../../../Components/Buttons/VisibleBtn/VisibleBtn'
 import OpenGeneratorBtn from '../../../Components/Buttons/OpenGeneratorBtn/OpenGeneratorBtn'
 import OpenColorPickerBtn from '../../../Components/Buttons/OpenColorPickerBtn/OpenColorPickerBtn'
 
-import randomHSL from '../../../Helpers/randomHSL'
+import randomHSL from '../../../Features/randomHSL'
 import PasswordGenerator from '../../PasswordGenerator/PasswordGenerator'
 import ColorPicker from '../../ColorPicker/ColorPicker'
 

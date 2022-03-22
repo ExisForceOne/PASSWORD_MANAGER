@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 
-import generatePassword from '../../Helpers/generatePassword'
+import generatePassword from '../../Features/generatePassword'
 
 import FullScreenModal from '../../Layout/FullScreenModal/FullScreenModal'
 import Form from '../../Components/Forms/Form/Form'

@@ -98,7 +98,7 @@ function setStrengthRating(strengthPoints) {
 }
 
 
-function setStrength(key, weeknessList){
+function setStrengthAndWeakness(key, weeknessList){
     let strengthPoints = 100;
     const weekness = [];
 
@@ -110,7 +110,6 @@ function setStrength(key, weeknessList){
     });
 
     key.strength = {
-        points: strengthPoints,
         rating: setStrengthRating(strengthPoints),
         weekness: weekness, 
     }
@@ -124,7 +123,7 @@ function checkPasswordStrength(item){
     weeknessList.push(charRepeatWeekness(item.password));
     weeknessList.push(...charTypeWeekness(item.password));
 
-    setStrength(item,weeknessList);
+    setStrengthAndWeakness(item,weeknessList);
 }
 
 
