@@ -14,8 +14,9 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
+        trim: true,
         required: [true, 'Password is required'],
-        minLength: [4, 'Name must have at least 4 characters'],
+        validate: [validators.validatePassword,'Invalid password']
     }
 })
 
