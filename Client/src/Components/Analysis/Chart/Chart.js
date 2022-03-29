@@ -1,7 +1,7 @@
 import style from './Chart.module.css'
 
 import { Doughnut  } from "react-chartjs-2";
-import { Chart as ChartJS } from "chart.js/auto";
+import { Chart as ChartJS } from "chart.js/auto"; // eslint-disable-line no-unused-vars
 
 function sumArrayValues(arr){
   return arr.reduce((partialSum, a) => partialSum + a, 0)
