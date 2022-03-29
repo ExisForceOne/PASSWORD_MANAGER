@@ -10,13 +10,13 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         trim: true,
         unique: true,
-        validate: [validators.validateEmail,'Invalid mail']
+        validate: [validators.validateEmail,'Invalid mail, check your data!']
     },
     password: {
         type: String,
         trim: true,
         required: [true, 'Password is required'],
-        validate: [validators.validatePassword,'Invalid password']
+        validate: [validators.validatePassword,'Password should be stronger!']
     }
 })
 

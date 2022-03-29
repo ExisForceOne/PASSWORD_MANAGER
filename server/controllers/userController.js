@@ -19,12 +19,17 @@ const userController = {
             console.log('user added');
         } catch(err) {
 
-            console.log('error', err.name, err.code)
 
             if (err.name === 'MongoServerError' && err.code === 11000){
                 res.status(422).json({message: 'This email is already in use!'})
+
+            } else if(err.errors) {
+                res.status(422).json({message: Object.values(err.errors)[0].message})
+                //returs message from validator errors
+                
             } else {
-                res.status(422).json({message: 'Validation error, check your  data!'})
+                console.log(err)
+                res.sendStatus(500)
             }
         }
     },
