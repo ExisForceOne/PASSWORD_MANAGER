@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 dotenv.config({path: "./config.env"})
 
+import jwt from 'jsonwebtoken'
 import User from '../db/models/user.js'
 
 
@@ -50,7 +51,12 @@ const userController = {
                 return
             }
 
+
+            const accessToken = jwt.sign({ userID: user._id}, process.env.TOKEN_SECRET, { expiresIn: 10800})
+
+
             res.status(201).json({
+                token: accessToken,
                 email: user.email 
             })
             
