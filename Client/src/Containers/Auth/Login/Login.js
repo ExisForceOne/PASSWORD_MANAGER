@@ -1,14 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import axios from 'axios'
+import { useFormik } from 'formik';
+
+import FetchError from "../../../Components/FetchError/FetchError";
 import Form from "../../../Components/Forms/Form/Form";
 import { Input } from "../../../Components/Forms/Input/Input";
 import LoadingSubmitBtn from "../../../Components/Buttons/LoadingSubmitBtn/LoadingSubmitBtn";
 import AuthLink from "../../../Components/Login&Register/AuthLink/AuthLink";
-import { useFormik } from 'formik';
 
 function Login() {
     let navigate = useNavigate()
+
     const [loading, setLoading] = useState(false)
+    const [errMessage, setErrMessage] = useState(null)
 
     const formik = useFormik({
         initialValues: {
@@ -22,17 +28,34 @@ function Login() {
 
 
 
-    function login(values){
-        console.log(values)
+    async function login(values){
         setLoading(true)
-        setTimeout(()=>{
+        setErrMessage(null)
+
+        try {
+            const res = await axios.post('http://localhost:3001/users/login', values)
+            console.log(res.status+' user logged')
+            console.log(res.data)
             navigate('/vault')
-        },1500)
+
+          } catch (err) {
+                setLoading(false)
+
+                console.log(err.toJSON());
+
+                setErrMessage
+                    (
+                    err.response
+                    ? err.response.data.message
+                    : 'Something went wrong, please try again later!'
+                    )
+            }
     }
 
 
     return (
             <>
+            {errMessage ? <FetchError message={errMessage} /> : null}
             <Form title='Login' onSubmit={formik.handleSubmit}>
             <Input
                 label="Email:"

@@ -50,7 +50,6 @@ const userController = {
                 return
             }
 
-
             res.status(201).json({
                 email: user.email 
             })

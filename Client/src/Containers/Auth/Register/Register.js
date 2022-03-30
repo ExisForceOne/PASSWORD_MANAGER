@@ -48,7 +48,7 @@ function Register() {
                     ? err.response.data.message
                     : 'Something went wrong, please try again later!'
                     )
-          }
+            }
         }
         
 
