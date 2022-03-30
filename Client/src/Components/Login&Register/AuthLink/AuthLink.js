@@ -7,6 +7,8 @@ const styledLink = {
     fontFamily: 'inherit',
     textAlign: 'center',
     borderTop: '1px dashed black',
+    color: 'blue',
+    textDecoration: 'underline'
 }
 
 export default function AuthLink(props){

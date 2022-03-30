@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import axios from 'axios'
 import { useFormik } from 'formik'
 import yupValidators from "../../../Helpers/yupValidators";
 
+import FetchError from "../../../Components/FetchError/FetchError";
 import Form from "../../../Components/Forms/Form/Form";
 import { Input } from "../../../Components/Forms/Input/Input";
 import LoadingSubmitBtn from "../../../Components/Buttons/LoadingSubmitBtn/LoadingSubmitBtn";
@@ -10,7 +13,9 @@ import AuthLink from "../../../Components/Login&Register/AuthLink/AuthLink";
 
 function Register() {
     let navigate = useNavigate()
+
     const [loading, setLoading] = useState(false)
+    const [errMessage, setErrMessage] = useState(null)
 
     const formik = useFormik({
         initialValues: {
@@ -23,18 +28,34 @@ function Register() {
     })
 
 
-
-
-    function register(values){
-        console.log(values)
+    async function register(values){
         setLoading(true)
-        setTimeout(()=>{
-            navigate('/login')
-        },1500)
-    }
+        setErrMessage(null)
 
+        try {
+            const res = await axios.post('http://localhost:3001/users/register', values)
+            console.log(res.status+' New user created')
+            navigate('/login')
+
+          } catch (err) {
+                setLoading(false)
+
+                console.log(err.toJSON());
+
+                setErrMessage
+                    (
+                    err.response
+                    ? err.response.data.message
+                    : 'Something went wrong, please try again later!'
+                    )
+          }
+        }
+        
+
+        
     return (
             <>
+            {errMessage ? <FetchError message={errMessage} /> : null}
             <Form title='Register' onSubmit={formik.handleSubmit}>
             <Input
                 label="Email:"
