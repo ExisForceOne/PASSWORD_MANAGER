@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
-import style from './AuthLayout.module.css'
+import style from './LoginAndRegisterLayout.module.css'
 
-function AuthLayout(props){
+function LoginAndRegisterLayout(props){
 
     return (
         <div className={style.container}>
@@ -13,4 +13,4 @@ function AuthLayout(props){
     )
 }
 
-export default AuthLayout
+export default LoginAndRegisterLayout
