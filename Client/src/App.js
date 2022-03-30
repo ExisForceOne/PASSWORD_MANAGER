@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import AuthContext from "./Contexts/AuthContext";
 
-import DashboardLayout from "./Layout/DashboardLayout/DashboardLayout"
-import AuthLayout from "./Layout/AuthLayout/AuthLayout";
+import ProtectedDashboardLayout from "./Layout/ProtectedDashboardLayout/ProtectedDashboardLayout"
+import LoginAndRegisterLayout from "./Layout/LoginAndRegisterLayout/LoginAndRegisterLayout";
 
 import Home from "./Containers/Home/Home";
 import Login from './Containers/Auth/Login/Login';
@@ -15,25 +17,35 @@ import NotFound from "./Components/NotFound/NotFound";
 import Edit from "./Containers/Edit/Edit";
 
 function App() {
+
+  const [authUser, setAuthUser] = useState(null);
+
+
   return (
     <>
+      <AuthContext.Provider value={{authUser, setAuthUser}}>
+
         <Routes>
 
-          <Route element={<AuthLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-          </Route>
-          
-          <Route element={<DashboardLayout />}> 
-            <Route path='vault' element={<Vault />} />
-            <Route path="details" element={<Details />}/>
-            <Route path="add" element={<Add />}/>
-            <Route path="edit" element={<Edit />}/>
-            <Route path='analysis' element={<Analysis />} />    
-          </Route>
-            <Route path="*" element={<NotFound />} />            
+            <Route element={<LoginAndRegisterLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+            </Route>
+            
+            <Route element={<ProtectedDashboardLayout />}> 
+              <Route path='vault' element={<Vault />} />
+              <Route path="details" element={<Details />}/>
+              <Route path="add" element={<Add />}/>
+              <Route path="edit" element={<Edit />}/>
+              <Route path='analysis' element={<Analysis />} />    
+            </Route>
+
+            <Route path="*" element={<NotFound />} />    
+
         </Routes>
+
+      </AuthContext.Provider>        
     </>
   );
 }
