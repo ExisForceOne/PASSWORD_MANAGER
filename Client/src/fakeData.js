@@ -1,10 +1,10 @@
 const data = [
     {
         _id: 1,
-        name: 'Test1TEST2TEST3TEST4',
+        name: 'Test1TEST2TEST3TEST4TES',
         login: 'd.swiadek@vida.pl',
         password: 'h1',
-        url: 'https://www.onet.pl/',
+        url: 'https://www.onetaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.pl/',
         desc: 'fajne to jest onaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaa et',
         color: 'hsl(120, 100%, 25%)',
         fav: true,
@@ -16,8 +16,8 @@ const data = [
         color: 'hsl(0, 0%, 80%)',
         login: 'd.swiadek@vida.pl',
         password: 'Tajne12345',
-        url: 'https://stackoverflow.com',
-        desc: null,
+        url: '',
+        desc: '',
         fav: true,
         ignoredByAnalysis: false
     },
