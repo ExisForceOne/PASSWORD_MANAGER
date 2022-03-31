@@ -16,6 +16,7 @@
 .dataContainer {
     flex: 1 1;
     padding: 0 15px;
+    word-break: break-all;
 }
 
 @media (min-width: 420px) {

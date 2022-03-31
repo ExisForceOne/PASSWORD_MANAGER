@@ -3,6 +3,7 @@ import style from './Add.module.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
+import yupValidators from '../../Helpers/yupValidators'
 
 import Form from '../../Components/Forms/Form/Form'
 import { Checkbox, Input, Textarea } from '../../Components/Forms/Input/Input'
@@ -35,6 +36,7 @@ export default function Add(props){
             desc: 'opis',
             fav: false,
         },
+        validationSchema: yupValidators.addAndEdit,
         onSubmit: values => submitHandler(values),
     })
 
@@ -76,6 +78,10 @@ export default function Add(props){
                     type={'text'}
                     onChange={formik.handleChange}
                     value={formik.values.name}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.name && formik.errors.name 
+                        ? formik.errors.name
+                        : null}
                 />
 
                 <Input
@@ -85,6 +91,11 @@ export default function Add(props){
                     type={'text'}
                     onChange={formik.handleChange}
                     value={formik.values.login}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.login && formik.errors.login 
+                        ? formik.errors.login
+                        : null}
+                    
                 />
 
                 <div className={style.passContainer}>
@@ -99,6 +110,12 @@ export default function Add(props){
                             }
                         onChange={formik.handleChange}
                         value={formik.values.password}
+                        onBlur={formik.handleBlur}
+                        error={formik.touched.password && formik.errors.password 
+                            ? formik.errors.password
+                            : null}
+                        
+                        
                     />
                     <div className={style.btnContainer}>
                         <VisibleBtn state={{passwordIsVisible, setPasswordIsVisible}} />
