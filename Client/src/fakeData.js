@@ -12,14 +12,14 @@ const data = [
     },
     {
         _id: 2,
-        name: 'Test2',
-        color: 'hsl(0, 0%, 80%)',
-        login: 'd.swiadek@vida.pl',
-        password: 'Tajne12345',
-        url: '',
-        desc: '',
-        fav: true,
-        ignoredByAnalysis: false
+        name: "123456789012345678901234",
+        login: "Tajne.1234",
+        password: "superSekjur",
+        color: "hsl(255,1%,0%)",
+        ur: "",
+        desc: "",
+        fav: false,
+        "__v": 0
     },
     {
         _id: 3,
