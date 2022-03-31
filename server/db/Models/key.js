@@ -1,12 +1,12 @@
 import mongoose from 'mongoose'
-import validators from '../validators'
+import validators  from '../validators.js'
 
 const keySchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'Name is required'],
         trim: true,
-        max: (24, 'Name can have max 24 characters'),
+        validate: [validators.maxNameLenght,'Name can have max 24 characters'],
     },
     login: {
         type: String,

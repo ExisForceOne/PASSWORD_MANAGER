@@ -7,6 +7,9 @@ const validators = {
     },
     validateHSL(hsl){
         return /hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/.test(hsl)
+    },
+    maxNameLenght(name){
+        return name > 24
     }
 }
 
