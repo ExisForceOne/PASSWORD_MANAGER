@@ -31,6 +31,7 @@ function Login() {
 
 
     async function login(values){
+        formik.resetForm()
         setLoading(true)
         setErrMessage(null)
 
