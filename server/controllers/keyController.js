@@ -3,8 +3,18 @@ import Key from '../db/models/key.js'
 
 const keyController = {
 
+    async get(req,res){
+
+        const keys = await Key.find({author: req.payload.userID})
+
+        res.status(200).json(keys)
+
+
+    },
+
     async add(req,res){
-        console.log(req.payload)
+
+
         const newKey = new Key({
             name: req.body.name,
             login: req.body.login,
