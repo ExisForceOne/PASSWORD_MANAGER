@@ -5,10 +5,11 @@ import AuthContext from '../../Contexts/AuthContext'
 
 
 import Loading from '../../Components/Loading/Loading'
-import SearchBar from '../../Components/SearchBar/SearchBar'
+import SearchBar from '../../Components/Vault/SearchBar/SearchBar'
 import KeysContainer from '../../Components/KeysContainer/KeysContainer'
 import KeysItem from '../../Components/KeysItem/KeysItem'
 import AddNewKeyBtn from '../../Components/Buttons/AddNewKeyBtn/AddNewKeyBtn'
+import NoKeysInfo from '../../Components/Vault/NoKeysInfo/NoKeysInfo'
 // import FetchError from '../../Components/FetchError/FetchError'
 
 
@@ -19,7 +20,7 @@ export default function Valut(props){
     const [isLoading, setIsLoading] = useState(true)
     const [term, setTerm] = useState('')
 
-    async function getKeys(){
+    async function fetchData(){
         const config = {
             headers: { Authorization: `Bearer ${authUser}` }
         }
@@ -45,16 +46,22 @@ export default function Valut(props){
     }
   
     useEffect(()=>{
-        getKeys()
+        fetchData()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     useEffect(()=>{
         filterData(term)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [term])
 
 
     if(isLoading) {
         return <Loading />
+    }
+
+    if(fetchedData.length === 0){
+        return <NoKeysInfo/>
     }
 
     return (
