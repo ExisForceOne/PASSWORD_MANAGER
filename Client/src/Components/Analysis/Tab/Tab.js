@@ -13,17 +13,14 @@ export default function Tab(props) {
             }
         >
             {
-            props.data.map(x=>
-                <div key={x._id}>
+            props.data.map(item=>
+                <div key={item._id}>
                     <KeysItem
-                    key={x._id}
-                    name={x.name}
-                    color={x.color}
-                    fav={x.fav} 
+                    {...item}
                     />
                     {
-                        x.strength.weekness.length
-                        ? <CollapseWeaknessList weakness={x.strength.weekness} />
+                        item.strength.weekness.length
+                        ? <CollapseWeaknessList weakness={item.strength.weekness} />
                         : null
                     }
                     
