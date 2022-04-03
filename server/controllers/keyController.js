@@ -1,5 +1,5 @@
 import Key from '../db/models/key.js'
-
+import mongoose from 'mongoose'
 
 const keyController = {
 
@@ -12,7 +12,34 @@ const keyController = {
             console.log(err)
             res.sendStatus(500)
         }
+    },
 
+    async getById(req,res){
+        const { id } = req.params;
+
+        if(!mongoose.Types.ObjectId.isValid(id)) {
+            res.status(404).json({message: 'Key nieznaleziony'})
+            return
+        }
+
+        try {
+            const data = await Key.findById(id)
+
+            if(!data) {
+                res.status(404).json({message: 'Key nieznaleziony'})
+                return
+            }
+            if(data.author!=req.payload.userID){
+                res.status(403).json({message: 'You dont have access to this data'})
+                return
+            }
+
+            res.status(200).json(data)
+            return
+        } catch(err){
+            console.log(err)
+            res.status(500)
+        }
 
     },
 
