@@ -4,7 +4,7 @@ import Key from '../db/models/key.js'
 const keyController = {
 
     async add(req,res){
-
+        console.log(req.payload)
         const newKey = new Key({
             name: req.body.name,
             login: req.body.login,
@@ -13,6 +13,7 @@ const keyController = {
             url: req.body.url,
             desc: req.body.desc,
             fav: req.body.fav,
+            author: req.payload.userID
         })
 
         try {

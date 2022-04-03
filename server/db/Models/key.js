@@ -34,8 +34,11 @@ const keySchema = new mongoose.Schema({
     fav: {
         type: Boolean,
         default: false,
+    },
+    author: {
+        type: String,
+        required: [true, 'AuthorID is required'],
     }
-    //authorID
 
 })
 
