@@ -5,9 +5,13 @@ const keyController = {
 
     async get(req,res){
 
-        const keys = await Key.find({author: req.payload.userID})
-
-        res.status(200).json(keys)
+        try {
+            const keys = await Key.find({author: req.payload.userID})
+            res.status(200).json(keys)
+        } catch(err){
+            console.log(err)
+            res.sendStatus(500)
+        }
 
 
     },
