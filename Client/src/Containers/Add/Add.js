@@ -1,10 +1,11 @@
 import style from './Add.module.css'
 
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import yupValidators from '../../Helpers/yupValidators'
 import axios from 'axios'
+import AuthContext from '../../Contexts/AuthContext'
 
 import Form from '../../Components/Forms/Form/Form'
 import { Checkbox, Input, Textarea } from '../../Components/Forms/Input/Input'
@@ -22,6 +23,7 @@ import ColorPicker from '../ColorPicker/ColorPicker'
 
 
 export default function Add(props){
+    const { authUser } = useContext(AuthContext)
     let navigate = useNavigate()
 
     const [passwordIsVisible, setPasswordIsVisible] = useState(false)
@@ -46,13 +48,18 @@ export default function Add(props){
     })
 
     async function submitHandler(values){
+        const config = {
+            headers: { Authorization: `Bearer ${authUser}` }
+        }
+
+
         console.log(values)
 
         setLoading(true)
         setErrMessage(null)
 
         try {
-            const res = await axios.post('http://localhost:3001/keys/add', values)
+            const res = await axios.post('http://localhost:3001/keys/add', values, config)
             console.log(res.status+'key added')
         } catch (err){
             setLoading(false)
