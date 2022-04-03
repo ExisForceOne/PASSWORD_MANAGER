@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import yupValidators from '../../Helpers/yupValidators'
+import axios from 'axios'
 
 import Form from '../../Components/Forms/Form/Form'
 import { Checkbox, Input, Textarea } from '../../Components/Forms/Input/Input'
@@ -11,6 +12,7 @@ import SubmitAndCancelBtnContainer from '../../Components/Buttons/SubmitAndCance
 import VisibleBtn from '../../Components/Buttons/VisibleBtn/VisibleBtn'
 import OpenGeneratorBtn from '../../Components/Buttons/OpenGeneratorBtn/OpenGeneratorBtn'
 import OpenColorPickerBtn from '../../Components/Buttons/OpenColorPickerBtn/OpenColorPickerBtn'
+import FetchError from '../../Components/FetchError/FetchError'
 
 import randomHSL from '../../Features/randomHSL'
 import PasswordGenerator from '../PasswordGenerator/PasswordGenerator'
@@ -26,6 +28,9 @@ export default function Add(props){
     const [generatorIsVisible, setGeneratorIsVisible] = useState(false)
     const [colorPickerIsVisible, setColorPickerIsVisible] = useState(false)
 
+    const [loading, setLoading] = useState(false)
+    const [errMessage, setErrMessage] = useState(null)
+
     const formik = useFormik({
         initialValues: {
             name: 'name',
@@ -40,14 +45,33 @@ export default function Add(props){
         onSubmit: values => submitHandler(values),
     })
 
-    function submitHandler(values){
+    async function submitHandler(values){
         console.log(values)
+
+        setLoading(true)
+        setErrMessage(null)
+
+        try {
+            const res = await axios.post('http://localhost:3001/keys/add', values)
+            console.log(res.status+'key added')
+        } catch (err){
+            setLoading(false)
+
+            console.log(err.toJSON())
+
+            setErrMessage
+                    (
+                    err.response
+                    ? err.response.data.message
+                    : 'Something went wrong, please try again later!'
+                    )
+        }
 
     }
 
     return (
         <div className={style.container}>
-
+            
             {
                 generatorIsVisible
                 ?   <PasswordGenerator 
@@ -158,7 +182,9 @@ export default function Add(props){
                     backText={'Cancel'}
                     backOnClick={()=>{navigate(-1)}}
                     submitText={'Add'}
+                    submitLoading={loading}
                 />
+                {errMessage ? <FetchError message={errMessage} /> : null}
 
             </Form>
         </div>
