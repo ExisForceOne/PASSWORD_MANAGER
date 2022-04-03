@@ -12,7 +12,7 @@ export default function KeysItem(props) {
 
 
     return (
-        <Link to={`/details`} >
+        <Link to={`/details/${props._id}`} >
             <div style={styledItem} className={style.item}>
                 <span>{props.name}</span>
                     {

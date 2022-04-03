@@ -17,7 +17,6 @@ export default function Valut(props){
     const { authUser } = useContext(AuthContext)
     const [fetchedData, setFetchedData] = useState(null)
     const [data, setData] = useState(null)
-    const [isLoading, setIsLoading] = useState(true)
     const [term, setTerm] = useState('')
     const [errMessage, setErrMessage] = useState(null)
 
@@ -35,7 +34,6 @@ export default function Valut(props){
 
             setErrMessage('Something went wrong, please try again later!')
         }
-        setIsLoading(false)
     }
 
     function filterData(term){
@@ -57,12 +55,13 @@ export default function Valut(props){
     }, [term])
 
 
-    if(isLoading) {
-        return <Loading />
-    }
-
+    
     if(errMessage){
         return <div><FetchError message={errMessage} /></div>
+    }
+    
+    if(!data) {
+        return <Loading />
     }
 
     if(fetchedData.length === 0){

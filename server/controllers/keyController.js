@@ -26,7 +26,7 @@ const keyController = {
             const data = await Key.findById(id)
 
             if(!data) {
-                res.status(404).json({message: 'Key nieznaleziony'})
+                res.status(404).json({message: 'Key not found'})
                 return
             }
             if(data.author!=req.payload.userID){
