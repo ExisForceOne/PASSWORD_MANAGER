@@ -61,6 +61,7 @@ export default function Add(props){
         try {
             const res = await axios.post('http://localhost:3001/keys/add', values, config)
             console.log(res.status+'key added')
+            navigate('/vault')
         } catch (err){
             setLoading(false)
 
