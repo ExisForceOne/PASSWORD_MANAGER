@@ -1,6 +1,5 @@
 import KeysContainer from "../../KeysContainer/KeysContainer"
 import KeysItem from "../../KeysItem/KeysItem"
-import CollapseWeaknessList from '../CollapseWeaknessList/CollapseWeaknessList'
 
 export default function Tab(props) {
     
@@ -14,17 +13,10 @@ export default function Tab(props) {
         >
             {
             props.data.map(item=>
-                <div key={item._id}>
                     <KeysItem
+                    key={item._id}
                     {...item}
                     />
-                    {
-                        item.strength.weekness.length
-                        ? <CollapseWeaknessList weakness={item.strength.weekness} />
-                        : null
-                    }
-                    
-                </div>
 
                 )
             }
