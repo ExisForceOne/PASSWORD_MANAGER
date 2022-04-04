@@ -1,28 +1,28 @@
-import style from './Add.module.css'
+import style from './SharedForm.module.css'
 
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
-import yupValidators from '../../Helpers/yupValidators'
+import yupValidators from '../../../Helpers/yupValidators'
 import axios from 'axios'
-import AuthContext from '../../Contexts/AuthContext'
+import AuthContext from '../../../Contexts/AuthContext'
 
-import Form from '../../Components/Forms/Form/Form'
-import { Checkbox, Input, Textarea } from '../../Components/Forms/Input/Input'
-import SubmitAndCancelBtnContainer from '../../Components/Buttons/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
-import VisibleBtn from '../../Components/Buttons/VisibleBtn/VisibleBtn'
-import OpenGeneratorBtn from '../../Components/Buttons/OpenGeneratorBtn/OpenGeneratorBtn'
-import OpenColorPickerBtn from '../../Components/Buttons/OpenColorPickerBtn/OpenColorPickerBtn'
-import FetchError from '../../Components/FetchError/FetchError'
+import Form from '../../../Components/Forms/Form/Form'
+import { Checkbox, Input, Textarea } from '../../../Components/Forms/Input/Input'
+import SubmitAndCancelBtnContainer from '../../../Components/Buttons/SubmitAndCancelBtnContainer/SubmitAndCancelBtnContainer'
+import VisibleBtn from '../../../Components/Buttons/VisibleBtn/VisibleBtn'
+import OpenGeneratorBtn from '../../../Components/Buttons/OpenGeneratorBtn/OpenGeneratorBtn'
+import OpenColorPickerBtn from '../../../Components/Buttons/OpenColorPickerBtn/OpenColorPickerBtn'
+import FetchError from '../../../Components/FetchError/FetchError'
 
-import randomHSL from '../../Features/randomHSL'
-import PasswordGenerator from '../PasswordGenerator/PasswordGenerator'
-import ColorPicker from '../ColorPicker/ColorPicker'
-
-
+import randomHSL from '../../../Features/randomHSL'
+import PasswordGenerator from '../../PasswordGenerator/PasswordGenerator'
+import ColorPicker from '../../ColorPicker/ColorPicker'
 
 
-export default function Add(props){
+
+
+export default function SharedForm({data}){
     const { authUser } = useContext(AuthContext)
     let navigate = useNavigate()
 
@@ -35,13 +35,13 @@ export default function Add(props){
 
     const formik = useFormik({
         initialValues: {
-            name: 'name',
-            login: 'login',
-            password: 'dupa',
-            color: randomHSL(),
-            url: 'google',
-            desc: 'opis',
-            fav: false,
+            name: data?.name || '',
+            login: data?.login || '',
+            password: data?.password || '',
+            color: data?.color || randomHSL(),
+            url: data?.url || '',
+            desc: data?.desc || '',
+            fav: data?.fav || false,
         },
         validationSchema: yupValidators.addAndEdit,
         onSubmit: values => submitHandler(values),
@@ -61,7 +61,7 @@ export default function Add(props){
         try {
             const res = await axios.post('http://localhost:3001/keys/add', values, config)
             console.log(res.status+'key added')
-            navigate('/vault')
+            navigate(-1)
         } catch (err){
             setLoading(false)
 
@@ -189,7 +189,7 @@ export default function Add(props){
                 <SubmitAndCancelBtnContainer
                     backText={'Cancel'}
                     backOnClick={()=>{navigate(-1)}}
-                    submitText={'Add'}
+                    submitText={'Confirm'}
                     submitLoading={loading}
                 />
                 {errMessage ? <FetchError message={errMessage} /> : null}

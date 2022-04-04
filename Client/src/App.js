@@ -11,10 +11,10 @@ import Register from './Containers/Auth/Register/Register';
 
 import Vault from "./Containers/Vault/Valut";
 import Details from "./Containers/Details/Details";
-import Add from "./Containers/Add/Add";
+import Add from "./Containers/AddAndEdit/Add/Add";
+import Edit from "./Containers/AddAndEdit/Edit/Edit";
 import Analysis from "./Containers/Analysis/Analysis"
 import NotFound from "./Components/NotFound/NotFound";
-import Edit from "./Containers/Edit/Edit";
 
 function App() {
 
