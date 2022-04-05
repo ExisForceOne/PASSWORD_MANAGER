@@ -6,7 +6,7 @@ const keySchema = new mongoose.Schema({
         type: String,
         required: [true, 'Name is required'],
         trim: true,
-        validate: [validators.maxNameLenght,'Name can have max 24 characters'],
+        validate: [validators.maxNameLenght,'Name can have max 18 characters'],
     },
     login: {
         type: String,

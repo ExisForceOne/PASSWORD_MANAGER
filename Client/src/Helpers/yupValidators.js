@@ -13,7 +13,7 @@ const yupValidators = {
         repeatPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must be the same').required('Repeat password')
     }),
     addAndEdit: Yup.object({
-        name: Yup.string().trim().max(24, 'Name can have max 24 characters').required('Name is required'),
+        name: Yup.string().trim().max(18, 'Name can have max 18 characters').required('Name is required'),
         login: Yup.string().trim().required('Login is required'),
         password: Yup.string().trim().required('Password is required'),
     })
