@@ -1,6 +1,8 @@
 import style from './Header.module.css'
 import { FaStar } from 'react-icons/fa'
 
+import changeTextColor from '../../../Helpers/changeTextColor'
+
 export default function Header(props){
 
     const bgc = {
@@ -10,7 +12,7 @@ export default function Header(props){
     return (
         <div style={bgc} className={style.container} >
             <div className={style.nameContainer}>
-            <p>{props.name}</p>
+            <p style={{color: changeTextColor(props.color)}}>{props.name}</p>
             {
                 props.fav
                 ? <FaStar className={style.starIcon} />
