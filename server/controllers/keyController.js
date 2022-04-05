@@ -1,5 +1,4 @@
 import Key from '../db/models/key.js'
-import mongoose from 'mongoose'
 
 const keyController = {
 
@@ -16,11 +15,6 @@ const keyController = {
 
     async getById(req,res){
         const { id } = req.params;
-
-        if(!mongoose.Types.ObjectId.isValid(id)) {
-            res.status(404).json({message: 'Key nieznaleziony'})
-            return
-        }
 
         try {
             const data = await Key.findById(id)
@@ -77,30 +71,30 @@ const keyController = {
     async edit(req,res){
         const { id } = req.params;
 
-        if(!mongoose.Types.ObjectId.isValid(id)) {
-            res.status(400).json({message: 'Wrong ID'})
-            return
-        }
-
-        const key = await Key.findById(id)
-        if(!key) {
+        const data = await Key.findById(id)
+        if(!data) {
             res.status(404).json({message: 'Key not found'})
             return
         }
 
+        if(data.author!=req.payload.userID){
+            res.status(403).json({message: 'You dont have access to this data'})
+            return
+        }
 
-        key.name = req.body.name
-        key.login = req.body.login
-        key.password = req.body.password
-        key.color = req.body.color
-        key.url = req.body.url
-        key.desc = req.body.desc
-        key.fav = req.body.fav
+
+        data.name = req.body.name
+        data.login = req.body.login
+        data.password = req.body.password
+        data.color = req.body.color
+        data.url = req.body.url
+        data.desc = req.body.desc
+        data.fav = req.body.fav
 
 
         try {
-            await key.save()
-            res.status(201).json(key)
+            await data.save()
+            res.status(201).json(data)
             console.log('Key updated')
             return
         } catch (err) {
