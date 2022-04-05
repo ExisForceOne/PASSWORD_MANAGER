@@ -37,7 +37,7 @@ function App() {
               <Route path='vault' element={<Vault />} />
               <Route path="details/:id" element={<Details />}/>
               <Route path="add" element={<Add />}/>
-              <Route path="edit" element={<Edit />}/>
+              <Route path="edit/:id" element={<Edit />}/>
               <Route path='analysis' element={<Analysis />} />    
             </Route>
 

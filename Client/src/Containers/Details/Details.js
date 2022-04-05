@@ -60,7 +60,8 @@ export default function Details(props){
             <Header
             color={data.color}
             name={data.name}
-            fav={data.fav} />
+            fav={data.fav}
+            _id={data._id} />
 
             <BackBtn
             onClick={()=>{navigate(-1)}}

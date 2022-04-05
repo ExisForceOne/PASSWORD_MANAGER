@@ -22,9 +22,10 @@ import ColorPicker from '../../ColorPicker/ColorPicker'
 
 
 
-export default function SharedForm({data}){
+export default function SharedForm({data,endpoint}){
     const { authUser } = useContext(AuthContext)
     let navigate = useNavigate()
+
 
     const [passwordIsVisible, setPasswordIsVisible] = useState(false)
     const [generatorIsVisible, setGeneratorIsVisible] = useState(false)
@@ -59,8 +60,10 @@ export default function SharedForm({data}){
         setErrMessage(null)
 
         try {
-            const res = await axios.post('http://localhost:3001/keys/add', values, config)
-            console.log(res.status+'key added')
+            await axios.post(
+                `http://localhost:3001/keys/${endpoint}`,
+                 values,
+                 config)
             navigate(-1)
         } catch (err){
             setLoading(false)

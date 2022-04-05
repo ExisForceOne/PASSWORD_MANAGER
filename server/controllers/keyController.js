@@ -74,6 +74,47 @@ const keyController = {
     },
 
 
+    async edit(req,res){
+        const { id } = req.params;
+
+        if(!mongoose.Types.ObjectId.isValid(id)) {
+            res.status(400).json({message: 'Wrong ID'})
+            return
+        }
+
+        const key = await Key.findById(id)
+        if(!key) {
+            res.status(404).json({message: 'Key not found'})
+            return
+        }
+
+
+        key.name = req.body.name
+        key.login = req.body.login
+        key.password = req.body.password
+        key.color = req.body.color
+        key.url = req.body.url
+        key.desc = req.body.desc
+        key.fav = req.body.fav
+
+
+        try {
+            await key.save()
+            res.status(201).json(key)
+            console.log('Key updated')
+            return
+        } catch (err) {
+
+            if(err.errors) {
+                res.status(422).json({message: Object.values(err.errors)[0].message}) 
+            } else {
+                console.log(err)
+                res.sendStatus(500)
+            }
+        }
+    },
+
+
 }
 
 export default keyController
