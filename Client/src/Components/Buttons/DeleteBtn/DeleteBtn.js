@@ -5,7 +5,7 @@ import { RiDeleteBin2Fill as TrashIcon } from 'react-icons/ri'
 export default function DeleteBtn(props){
 
     return (
-        <button className={style.btn}>
+        <button className={style.btn} {...props}>
         <TrashIcon className={style.icon} />    
         </button>
     )

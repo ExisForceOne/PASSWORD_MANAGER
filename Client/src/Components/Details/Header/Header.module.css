@@ -3,38 +3,31 @@
     font-size: 1.2rem;
     padding: 25px 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     color: white;
     border-bottom: 1px solid black;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.container>a {
-    margin-left: auto;
-}
 
-.container>a>button {
+.nameContainer,
+.btnContainer {
     display: flex;
-    justify-content: center;
+}
+
+.nameContainer {
+    margin-bottom: 15px;
     align-items: center;
-    margin-left: auto;
-    padding: 5px 20px;
-    background: var(--gradient);
-    color: white;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    transition: .3s;
+    justify-content: center;
 }
 
-.container>a>button:hover {
-    transform: scale(1.2);
+.btnContainer>:nth-child(1){
+    margin-right: 15px;
 }
 
-.starIcon,
-.editIcon {
-    margin-left: 5px;
-}
 
 .starIcon {
+    margin-left: 5px;
     color: #ffc107;
     stroke: rgb(0, 0, 0);
     stroke-width: 12;
@@ -50,5 +43,18 @@
 @media (min-width: 475px) {
     .container {
         font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 555px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nameContainer {
+        margin-bottom: 0;
+        align-items: center;
+        justify-content: center;
     }
 }
