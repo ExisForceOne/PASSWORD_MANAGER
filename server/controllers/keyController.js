@@ -108,6 +108,21 @@ const keyController = {
         }
     },
 
+    async delete(req,res){
+        const {id} = req.params;
+
+        try {
+            await Key.deleteOne({_id: id})
+            console.log('deleted')
+            res.sendStatus(200);
+            return
+        } catch (err) {
+            console.log(err)
+            res.sendStatus(500)
+        }
+
+    }
+
 
 }
 
