@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import userAPI from "../../../APIs/userAPI";
+import axios from "axios";
 import { useFormik } from 'formik'
 import yupValidators from "../../../Helpers/yupValidators";
 
@@ -10,6 +10,7 @@ import Form from "../../../Components/Forms/Form/Form";
 import { Input } from "../../../Components/Forms/Input/Input";
 import LoadingSubmitBtn from "../../../Components/Buttons/LoadingSubmitBtn/LoadingSubmitBtn";
 import AuthLink from "../../../Components/Login&Register/AuthLink/AuthLink";
+
 
 function Register() {
     let navigate = useNavigate()
@@ -31,7 +32,7 @@ function Register() {
     async function register(values){
         setLoading(true)
         try {
-            await userAPI.post('/register', values)
+            await axios.post('http://localhost:3001/users/register', values)
             navigate('/login')
 
           } catch (err) {

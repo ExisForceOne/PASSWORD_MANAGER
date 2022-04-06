@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../../../Contexts/AuthContext";
-import userAPI from "../../../APIs/userAPI";
+import axios from "axios";
 import { useFormik } from 'formik';
 
 import FetchError from "../../../Components/FetchError/FetchError";
@@ -32,7 +32,7 @@ function Login() {
         setLoading(true)
 
         try {
-            const res = await userAPI.post('/login', values)
+            const res = await axios.post('http://localhost:3001/users/login', values)
             setAuthUser(res.data.token)
             navigate('/vault')
 
