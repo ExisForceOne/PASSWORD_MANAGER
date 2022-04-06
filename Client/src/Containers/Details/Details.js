@@ -70,6 +70,7 @@ export default function Details(props){
 
     useEffect(()=>{
         fetchData()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     if(errMessage){

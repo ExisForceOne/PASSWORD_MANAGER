@@ -8,6 +8,7 @@ import Chart from '../../Components/Analysis/Chart/Chart'
 import Menu from '../../Components/Analysis/Menu/Menu'
 import Tab from '../../Components/Analysis/Tab/Tab'
 import FetchError from '../../Components/FetchError/FetchError'
+import NoKeysInfo from '../../Components/Vault/NoKeysInfo/NoKeysInfo'
 
 
 import getArraysLenghtFromObj from '../../Helpers/getArraysLenghtFromObj'
@@ -16,7 +17,9 @@ import classifieKeysStrength from '../../Features/classifieKeysStrength'
 
 export default function Analysis(props){
     const { authUser } = useContext(AuthContext)
+
     const [analyzedKeys, setAnalyzedKeys] = useState(null)
+    const [totalNumberofKeys, setTotalNumberofKeys] = useState(null)
     const [visibleTab, setVisibleTab] = useState('Weak')
     const [errMessage, setErrMessage] = useState(null)
 
@@ -29,6 +32,7 @@ export default function Analysis(props){
 
         try {
             const res =  await axios.get('http://localhost:3001/keys', config)
+            setTotalNumberofKeys(res.data.length)
             const data = classifieKeysStrength(res.data)
             setAnalyzedKeys(data)
             return res.data
@@ -53,6 +57,9 @@ export default function Analysis(props){
         return <Loading />
     }
 
+    if(!totalNumberofKeys){
+        return <NoKeysInfo/>
+    }
 
     return (
         <div>
