@@ -17,7 +17,6 @@ const userController = {
         try {
             await newUser.save()
             res.status(201).json(newUser)
-            console.log('user added');
         } catch(err) {
 
 
@@ -52,7 +51,7 @@ const userController = {
             }
 
 
-            const accessToken = jwt.sign({ userID: user._id}, process.env.TOKEN_SECRET, { expiresIn: 10800})
+            const accessToken = jwt.sign({ userID: user._id}, process.env.TOKEN_SECRET, { expiresIn: 900}) //15min
 
 
             res.status(201).json({

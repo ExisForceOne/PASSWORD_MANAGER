@@ -54,7 +54,6 @@ const keyController = {
         try {
             await newKey.save()
             res.status(201).json(newKey)
-            console.log('Key added');
         } catch(err) {
             
             if(err.errors) {
@@ -95,7 +94,6 @@ const keyController = {
         try {
             await data.save()
             res.status(201).json(data)
-            console.log('Key updated')
             return
         } catch (err) {
 
@@ -113,7 +111,6 @@ const keyController = {
 
         try {
             await Key.deleteOne({_id: id})
-            console.log('deleted')
             res.sendStatus(200);
             return
         } catch (err) {

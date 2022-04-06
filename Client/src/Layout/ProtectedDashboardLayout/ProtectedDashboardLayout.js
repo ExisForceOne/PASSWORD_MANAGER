@@ -4,9 +4,8 @@ import { useContext } from "react"
 import { Outlet, Navigate } from 'react-router-dom'
 import AuthContext from '../../Contexts/AuthContext'
 
-
-import Footer from '../../Components/Footer/Footer'
 import Menu from '../../Components/Menu/Menu'
+import Logout from '../../Components/Logout/Logout'
 
 function ProtectedDashboardLayout(props) {
     const { authUser } = useContext(AuthContext)
@@ -17,7 +16,7 @@ function ProtectedDashboardLayout(props) {
             ?  <div className={style.container}>
                     <Menu />
                     <Outlet />
-                    <Footer />
+                    <Logout />
                 </div>
             : <Navigate to="/login" />
 

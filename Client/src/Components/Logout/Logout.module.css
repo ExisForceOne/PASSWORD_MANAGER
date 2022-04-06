@@ -1,0 +1,11 @@
+.btn {
+    margin-top: 10px;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    color: rgb(219, 219, 219);
+}
+
+.icon {
+    margin-left: 5px;
+}
