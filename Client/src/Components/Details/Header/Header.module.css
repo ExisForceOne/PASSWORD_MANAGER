@@ -21,6 +21,10 @@
     justify-content: center;
 }
 
+.btnContainer {
+    align-items: stretch;
+}
+
 .btnContainer>:nth-child(1){
     margin-right: 15px;
 }
