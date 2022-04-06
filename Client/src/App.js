@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import AuthContext from "./Contexts/AuthContext";
+import SuccessMsgContext from "./Contexts/SuccessMsgContext";
 
 import ProtectedDashboardLayout from "./Layout/ProtectedDashboardLayout/ProtectedDashboardLayout"
 import LoginAndRegisterLayout from "./Layout/LoginAndRegisterLayout/LoginAndRegisterLayout";
+
 
 import Home from "./Containers/Home/Home";
 import Login from './Containers/Auth/Login/Login';
@@ -15,18 +17,19 @@ import Add from "./Containers/AddAndEdit/Add/Add";
 import Edit from "./Containers/AddAndEdit/Edit/Edit";
 import Analysis from "./Containers/Analysis/Analysis"
 import NotFound from "./Components/NotFound/NotFound";
+import SuccessInfo from "./Components/SuccessInfo/SuccessInfo";
 
 function App() {
 
   const [authUser, setAuthUser] = useState(null);
+  const [successMsg, setSuccessMsg] = useState('')
 
 
   return (
     <>
       <AuthContext.Provider value={{authUser, setAuthUser}}>
-
+      <SuccessMsgContext.Provider value={{successMsg, setSuccessMsg}} >
         <Routes>
-
             <Route element={<LoginAndRegisterLayout />}>
               <Route path="/" element={<Home />} />
               <Route path="login" element={<Login />} />
@@ -44,7 +47,8 @@ function App() {
             <Route path="*" element={<NotFound />} />    
 
         </Routes>
-
+        <SuccessInfo />
+      </SuccessMsgContext.Provider>
       </AuthContext.Provider>        
     </>
   );
