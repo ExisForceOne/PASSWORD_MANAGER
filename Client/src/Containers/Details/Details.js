@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom"
 
 import axios from 'axios'
 import AuthContext from '../../Contexts/AuthContext'
+import SuccessMsgContext from '../../Contexts/SuccessMsgContext'
 
 import Header from "../../Components/Details/Header/Header"
 import { Login, Password, Url, Desc} from "../../Components/Details/Section/Section"
@@ -20,6 +21,7 @@ export default function Details(props){
     let params = useParams()
     let navigate = useNavigate()
     const { authUser } = useContext(AuthContext)
+    const {setSuccessMsg} = useContext(SuccessMsgContext)
 
     const [passwordIsVisible, setPasswordIsVisible] = useState(false)
     const [data, setData] = useState(null)
@@ -54,6 +56,7 @@ export default function Details(props){
         try {
             await axios.delete(`http://localhost:3001/keys/${params.id}`, config)
             navigate(-1)
+            setSuccessMsg('Key deleted!')
         } catch(err){
             console.log(err.toJSON())
 

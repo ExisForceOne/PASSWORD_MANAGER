@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../../../Contexts/AuthContext";
+import SuccessMsgContext from '../../../Contexts/SuccessMsgContext'
 import axios from "axios";
 import { useFormik } from 'formik';
 
@@ -15,6 +16,7 @@ function Login() {
 
     let navigate = useNavigate()
     const {setAuthUser} = useContext(AuthContext)
+    const {setSuccessMsg} = useContext(SuccessMsgContext)
 
     const [loading, setLoading] = useState(false)
     const [errMessage, setErrMessage] = useState(null)
@@ -34,6 +36,7 @@ function Login() {
         try {
             const res = await axios.post('http://localhost:3001/users/login', values)
             setAuthUser(res.data.token)
+            setSuccessMsg('Logged in successfully!')
             navigate('/vault')
 
           } catch (err) {

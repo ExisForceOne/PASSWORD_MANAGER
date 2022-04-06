@@ -6,6 +6,7 @@ import { useFormik } from 'formik'
 import yupValidators from '../../../Helpers/yupValidators'
 import axios from 'axios'
 import AuthContext from '../../../Contexts/AuthContext'
+import SuccessMsgContext from '../../../Contexts/SuccessMsgContext'
 
 import Form from '../../../Components/Forms/Form/Form'
 import { Checkbox, Input, Textarea } from '../../../Components/Forms/Input/Input'
@@ -23,9 +24,9 @@ import ColorPicker from '../../ColorPicker/ColorPicker'
 
 
 export default function SharedForm({data,endpoint}){
-    const { authUser } = useContext(AuthContext)
     let navigate = useNavigate()
-
+    const { authUser } = useContext(AuthContext)
+    const {setSuccessMsg} = useContext(SuccessMsgContext)
 
     const [passwordIsVisible, setPasswordIsVisible] = useState(false)
     const [generatorIsVisible, setGeneratorIsVisible] = useState(false)
@@ -65,6 +66,7 @@ export default function SharedForm({data,endpoint}){
                  values,
                  config)
             navigate(-1)
+            setSuccessMsg(`Key ${data ? 'edited!' : 'added!'}`)
         } catch (err){
             setLoading(false)
 

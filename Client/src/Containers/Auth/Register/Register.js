@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import { useFormik } from 'formik'
 import yupValidators from "../../../Helpers/yupValidators";
+import SuccessMsgContext from '../../../Contexts/SuccessMsgContext'
 
 import FetchError from "../../../Components/FetchError/FetchError";
 import Form from "../../../Components/Forms/Form/Form";
@@ -14,6 +15,7 @@ import AuthLink from "../../../Components/Login&Register/AuthLink/AuthLink";
 
 function Register() {
     let navigate = useNavigate()
+    const {setSuccessMsg} = useContext(SuccessMsgContext)
 
     const [loading, setLoading] = useState(false)
     const [errMessage, setErrMessage] = useState(null)
@@ -33,6 +35,7 @@ function Register() {
         setLoading(true)
         try {
             await axios.post('http://localhost:3001/users/register', values)
+            setSuccessMsg('Registered successfully, log in!')
             navigate('/login')
 
           } catch (err) {
