@@ -4,7 +4,7 @@ import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import yupValidators from '../../../Helpers/yupValidators'
-import axios from 'axios'
+import api from '../../../Api/api'
 import AuthContext from '../../../Contexts/AuthContext'
 import SuccessMsgContext from '../../../Contexts/SuccessMsgContext'
 
@@ -61,8 +61,8 @@ export default function SharedForm({data,endpoint}){
         setErrMessage(null)
 
         try {
-            await axios.post(
-                `http://localhost:3001/keys/${endpoint}`,
+            await api.post(
+                `/keys/${endpoint}`,
                  values,
                  config)
             navigate(-1)
