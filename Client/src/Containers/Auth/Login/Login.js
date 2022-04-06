@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../../../Contexts/AuthContext";
-import axios from 'axios'
+import userAPI from "../../../APIs/userAPI";
 import { useFormik } from 'formik';
 
 import FetchError from "../../../Components/FetchError/FetchError";
@@ -12,6 +12,7 @@ import LoadingSubmitBtn from "../../../Components/Buttons/LoadingSubmitBtn/Loadi
 import AuthLink from "../../../Components/Login&Register/AuthLink/AuthLink";
 
 function Login() {
+
     let navigate = useNavigate()
     const {setAuthUser} = useContext(AuthContext)
 
@@ -27,27 +28,17 @@ function Login() {
     })
 
 
-
-
-
     async function login(values){
-        formik.resetForm()
         setLoading(true)
-        setErrMessage(null)
 
         try {
-            const res = await axios.post('http://localhost:3001/users/login', values)
-            console.log(res.status+' user logged')
-
+            const res = await userAPI.post('/login', values)
             setAuthUser(res.data.token)
-
             navigate('/vault')
 
           } catch (err) {
+                formik.resetForm()
                 setLoading(false)
-
-                console.log(err.toJSON());
-
                 setErrMessage
                     (
                     err.response
@@ -62,29 +53,29 @@ function Login() {
             <>
             {errMessage ? <FetchError message={errMessage} /> : null}
             <Form title='Login' onSubmit={formik.handleSubmit}>
-            <Input
-                label="Email:"
-                id='email'
-                name='email'
-                type='email'
-                onChange={formik.handleChange}
-                value={formik.values.email}
-            />
+                <Input
+                    label="Email:"
+                    id='email'
+                    name='email'
+                    type='email'
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                />
 
-            <Input
-                label="Master Password:"
-                id='password'
-                name='password'
-                type='password'
-                onChange={formik.handleChange}
-                value={formik.values.password}
-            />           
-            <LoadingSubmitBtn loading={loading} text={'Login'} />
+                <Input
+                    label="Master Password:"
+                    id='password'
+                    name='password'
+                    type='password'
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                />           
+                <LoadingSubmitBtn loading={loading} text={'Login'} />
             </Form>
             
             <AuthLink 
-            to={'/register'}
-            msg={'First time? Create account here'}
+                to={'/register'}
+                msg={'First time? Create account here'}
             />
             </>
 

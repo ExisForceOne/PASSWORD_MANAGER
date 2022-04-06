@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import axios from 'axios'
+import userAPI from "../../../APIs/userAPI";
 import { useFormik } from 'formik'
 import yupValidators from "../../../Helpers/yupValidators";
 
@@ -30,18 +30,12 @@ function Register() {
 
     async function register(values){
         setLoading(true)
-        setErrMessage(null)
-
         try {
-            const res = await axios.post('http://localhost:3001/users/register', values)
-            console.log(res.status+' New user created')
+            await userAPI.post('/register', values)
             navigate('/login')
 
           } catch (err) {
                 setLoading(false)
-
-                console.log(err.toJSON());
-
                 setErrMessage
                     (
                     err.response
