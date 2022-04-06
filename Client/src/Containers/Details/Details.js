@@ -49,6 +49,9 @@ export default function Details(props){
     }
 
     async function deleteKey(){
+
+        if (!window.confirm("Are you sure you want to delete this key?")) return false
+
         const config = {
             headers: { Authorization: `Bearer ${authUser}` }
         }
