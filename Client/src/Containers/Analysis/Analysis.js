@@ -31,7 +31,7 @@ export default function Analysis(props){
         }
 
         try {
-            const res =  await axios.get('http://localhost:3001/keys', config)
+            const res =  await axios.get('http://localhost:3001/api/keys', config)
             setTotalNumberofKeys(res.data.length)
             const data = classifieKeysStrength(res.data)
             setAnalyzedKeys(data)

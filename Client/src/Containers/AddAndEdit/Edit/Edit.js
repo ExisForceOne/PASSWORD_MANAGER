@@ -22,7 +22,7 @@ export default function Edit(props){
         }
 
         try {
-            const res =  await axios.get(`http://localhost:3001/keys/${id}`, config)
+            const res =  await axios.get(`http://localhost:3001/api/keys/${id}`, config)
             setData(res.data)
         } catch(err){
             console.log(err.toJSON())
