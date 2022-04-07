@@ -34,7 +34,7 @@ export default function Details(props){
         }
 
         try {
-            const res =  await axios.get(`http://localhost:3001/api/keys/${params.id}`, config)
+            const res =  await axios.get(`/api/keys/${params.id}`, config)
             setData(res.data)
         } catch(err){
             console.log(err.toJSON())
@@ -57,7 +57,7 @@ export default function Details(props){
         }
 
         try {
-            await axios.delete(`http://localhost:3001/api/keys/${params.id}`, config)
+            await axios.delete(`/api/keys/${params.id}`, config)
             navigate(-1)
             setSuccessMsg('Key deleted!')
         } catch(err){

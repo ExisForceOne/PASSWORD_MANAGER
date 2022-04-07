@@ -22,7 +22,7 @@ export default function Edit(props){
         }
 
         try {
-            const res =  await axios.get(`http://localhost:3001/api/keys/${id}`, config)
+            const res =  await axios.get(`/api/keys/${id}`, config)
             setData(res.data)
         } catch(err){
             console.log(err.toJSON())
@@ -38,6 +38,7 @@ export default function Edit(props){
 
     useEffect(()=>{
         fetchData()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     if(errMessage){
