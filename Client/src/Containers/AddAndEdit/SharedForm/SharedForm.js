@@ -54,9 +54,6 @@ export default function SharedForm({data,endpoint}){
             headers: { Authorization: `Bearer ${authUser}` }
         }
 
-
-        console.log(values)
-
         setLoading(true)
         setErrMessage(null)
 
