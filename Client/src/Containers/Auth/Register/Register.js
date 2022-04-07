@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import api from "../../../Api/api";
+import axios from "axios";
 import { useFormik } from 'formik'
 import yupValidators from "../../../Helpers/yupValidators";
 import SuccessMsgContext from '../../../Contexts/SuccessMsgContext'
@@ -34,7 +34,7 @@ function Register() {
     async function register(values){
         setLoading(true)
         try {
-            await api.post('/users/register', values)
+            await axios.post('http://localhost:3001/users/register', values)
             setSuccessMsg('Registered successfully, log in!')
             navigate('/login')
 

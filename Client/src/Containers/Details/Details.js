@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react"
 import { useNavigate, useParams, Link } from "react-router-dom"
 
-import api from "../../Api/api"
+import axios from 'axios'
 import AuthContext from '../../Contexts/AuthContext'
 import SuccessMsgContext from '../../Contexts/SuccessMsgContext'
 
@@ -34,7 +34,7 @@ export default function Details(props){
         }
 
         try {
-            const res =  await api.get(`/keys/${params.id}`, config)
+            const res =  await axios.get(`http://localhost:3001/keys/${params.id}`, config)
             setData(res.data)
         } catch(err){
             console.log(err.toJSON())
@@ -57,7 +57,7 @@ export default function Details(props){
         }
 
         try {
-            await api.delete(`/keys/${params.id}`, config)
+            await axios.delete(`http://localhost:3001/keys/${params.id}`, config)
             navigate(-1)
             setSuccessMsg('Key deleted!')
         } catch(err){

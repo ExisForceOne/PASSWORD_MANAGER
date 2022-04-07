@@ -1,5 +1,5 @@
 import {useEffect, useState, useContext } from 'react'
-import api from '../../Api/api'
+import axios from 'axios'
 
 import AuthContext from '../../Contexts/AuthContext'
 
@@ -31,7 +31,7 @@ export default function Analysis(props){
         }
 
         try {
-            const res =  await api.get('/keys', config)
+            const res =  await axios.get('http://localhost:3001/keys', config)
             setTotalNumberofKeys(res.data.length)
             const data = classifieKeysStrength(res.data)
             setAnalyzedKeys(data)
