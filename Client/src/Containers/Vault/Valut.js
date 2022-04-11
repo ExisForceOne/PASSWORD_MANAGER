@@ -1,5 +1,5 @@
 import { useState, useEffect,useContext } from 'react'
-import axios from 'axios'
+import api from '../../Api'
 
 import AuthContext from '../../Contexts/AuthContext'
 
@@ -26,7 +26,7 @@ export default function Valut(props){
         }
 
         try {
-            const res =  await axios.get('http://localhost:3001/api/keys', config)
+            const res =  await api.get('/keys', config)
             setFetchedData(res.data)
             setData(res.data)
         } catch(err){

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../../../Contexts/AuthContext";
 import SuccessMsgContext from '../../../Contexts/SuccessMsgContext'
-import axios from "axios";
+import api from "../../../Api";
 import { useFormik } from 'formik';
 
 import FetchError from "../../../Components/FetchError/FetchError";
@@ -34,7 +34,7 @@ function Login() {
         setLoading(true)
 
         try {
-            const res = await axios.post('http://localhost:3001/api/users/login', values)
+            const res = await api.post('/users/login', values)
             setAuthUser(res.data.token)
             setSuccessMsg('Logged in successfully!')
             navigate('/vault')

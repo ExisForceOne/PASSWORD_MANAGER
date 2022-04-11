@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import { useParams } from "react-router-dom"
 
-import axios from 'axios'
+import api from "../../../Api"
 import AuthContext from '../../../Contexts/AuthContext'
 
 import SharedForm from "../SharedForm/SharedForm"
@@ -22,7 +22,7 @@ export default function Edit(props){
         }
 
         try {
-            const res =  await axios.get(`http://localhost:3001/api/keys/${id}`, config)
+            const res =  await api.get(`/keys/${id}`, config)
             setData(res.data)
         } catch(err){
             console.log(err.toJSON())
