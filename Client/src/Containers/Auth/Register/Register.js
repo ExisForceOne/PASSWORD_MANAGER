@@ -34,7 +34,7 @@ function Register() {
     async function register(values){
         setLoading(true)
         try {
-            await axios.post('/api/users/register', values)
+            await axios.post('http://localhost:3001/api/users/register', values)
             setSuccessMsg('Registered successfully, log in!')
             navigate('/login')
 

@@ -59,7 +59,7 @@ export default function SharedForm({data,endpoint}){
 
         try {
             await axios.post(
-                `/api/keys/${endpoint}`,
+                `http://localhost:3001/api/keys/${endpoint}`,
                  values,
                  config)
             navigate(-1)

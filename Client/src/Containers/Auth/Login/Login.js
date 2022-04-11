@@ -34,7 +34,7 @@ function Login() {
         setLoading(true)
 
         try {
-            const res = await axios.post('/api/users/login', values)
+            const res = await axios.post('http://localhost:3001/api/users/login', values)
             setAuthUser(res.data.token)
             setSuccessMsg('Logged in successfully!')
             navigate('/vault')

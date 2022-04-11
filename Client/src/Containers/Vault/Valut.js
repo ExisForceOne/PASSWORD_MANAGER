@@ -26,7 +26,7 @@ export default function Valut(props){
         }
 
         try {
-            const res =  await axios.get('/api/keys', config)
+            const res =  await axios.get('http://localhost:3001/api/keys', config)
             setFetchedData(res.data)
             setData(res.data)
         } catch(err){
