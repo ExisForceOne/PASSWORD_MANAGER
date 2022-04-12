@@ -47,7 +47,7 @@ function Url(props){
             {<GlobeIcon />}
             <div className={style.dataContainer}>
                 <p>Website URL:</p>
-                <p><a href={props.value}>{props.value}</a></p>
+                <p><a rel="noopener noreferrer" target="_blank" href={props.value}>{props.value}</a></p>
             </div>
             {props.children}
         </div>
