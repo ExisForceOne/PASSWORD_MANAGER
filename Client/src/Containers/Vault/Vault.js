@@ -11,7 +11,7 @@ import AddNewKeyBtn from "../../Components/Buttons/AddNewKeyBtn/AddNewKeyBtn";
 import NoKeysInfo from "../../Components/Vault/NoKeysInfo/NoKeysInfo";
 import FetchError from "../../Components/FetchError/FetchError";
 
-export default function Valut(props) {
+export default function Vault(props) {
   const { authUser } = useContext(AuthContext);
   const [fetchedData, setFetchedData] = useState(null);
   const [data, setData] = useState(null);

@@ -4,12 +4,12 @@ import { useParams } from "react-router-dom";
 import api from "../../../Api";
 import AuthContext from "../../../Contexts/AuthContext";
 
-import SharedForm from "../SharedForm/SharedForm";
+import AddAndEditForm from "../AddAndEditForm.js/AddAndEditForm";
 import Loading from "../../../Components/Loading/Loading";
 import FetchError from "../../../Components/FetchError/FetchError";
 
 export default function Edit(props) {
-  let { id } = useParams();
+  const { id } = useParams();
   const { authUser } = useContext(AuthContext);
 
   const [data, setData] = useState(null);
@@ -49,5 +49,5 @@ export default function Edit(props) {
 
   if (!data) return <Loading />;
 
-  return <SharedForm data={data} endpoint={`edit/${data._id}`} />;
+  return <AddAndEditForm data={data} endpoint={`edit/${data._id}`} />;
 }

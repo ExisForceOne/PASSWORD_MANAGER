@@ -9,9 +9,9 @@ import LoginAndRegisterLayout from "./Layout/LoginAndRegisterLayout/LoginAndRegi
 import Login from "./Containers/Auth/Login/Login";
 import Register from "./Containers/Auth/Register/Register";
 
-import Vault from "./Containers/Vault/Valut";
+import Vault from "./Containers/Vault/Vault";
 import Details from "./Containers/Details/Details";
-import Add from "./Containers/AddAndEdit/Add/Add";
+import AddAndEditForm from "./Containers/AddAndEdit/AddAndEditForm.js/AddAndEditForm";
 import Edit from "./Containers/AddAndEdit/Edit/Edit";
 import Analysis from "./Containers/Analysis/Analysis";
 import NotFound from "./Components/NotFound/NotFound";
@@ -35,7 +35,7 @@ function App() {
             <Route element={<ProtectedDashboardLayout />}>
               <Route path="vault" element={<Vault />} />
               <Route path="details/:id" element={<Details />} />
-              <Route path="add" element={<Add />} />
+              <Route path="add" element={<AddAndEditForm endpoint={"add"} />} />
               <Route path="edit/:id" element={<Edit />} />
               <Route path="analysis" element={<Analysis />} />
             </Route>

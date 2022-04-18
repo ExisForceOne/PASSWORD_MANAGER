@@ -1,4 +1,4 @@
-import style from "./SharedForm.module.css";
+import style from "./AddAndEditForm.module.css";
 
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,7 @@ import randomHSL from "../../../Features/randomHSL";
 import PasswordGenerator from "../../PasswordGenerator/PasswordGenerator";
 import ColorPicker from "../../ColorPicker/ColorPicker";
 
-export default function SharedForm({ data, endpoint }) {
+export default function AddAndEditForm({ data, endpoint }) {
   let navigate = useNavigate();
   const { authUser } = useContext(AuthContext);
   const { setSuccessMsg } = useContext(SuccessMsgContext);
