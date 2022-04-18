@@ -5,7 +5,7 @@ function LoginAndRegisterLayout(props){
 
     return (
         <div className={style.container}>
-            <h1 className={style.title}>Password Menager</h1>
+            <h1 className={style.title}>Password Manager</h1>
             <div className={style.content}>
                 <Outlet />
             </div>

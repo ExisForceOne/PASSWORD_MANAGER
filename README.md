@@ -1,10 +1,10 @@
 # Password Menager
 
 MERN Stack CRUD App with JWT auth.
-Based on password menager
+Based on password manager
 
 ## Live
-Live demo available [_here_](https://password-menager.netlify.app).
+Live demo available [_here_](https://password-manager-exis.netlify.app).
 
 ## Test user
 Login: test@test.pl
