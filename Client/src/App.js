@@ -1,13 +1,11 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import AuthContext from "./Contexts/AuthContext";
 import SuccessMsgContext from "./Contexts/SuccessMsgContext";
 
 import ProtectedDashboardLayout from "./Layout/ProtectedDashboardLayout/ProtectedDashboardLayout"
 import LoginAndRegisterLayout from "./Layout/LoginAndRegisterLayout/LoginAndRegisterLayout";
 
-
-import Home from "./Containers/Home/Home";
 import Login from './Containers/Auth/Login/Login';
 import Register from './Containers/Auth/Register/Register';
 
@@ -31,7 +29,7 @@ function App() {
       <SuccessMsgContext.Provider value={{successMsg, setSuccessMsg}} >
         <Routes>
             <Route element={<LoginAndRegisterLayout />}>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Navigate to="login"/>} />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
             </Route>
