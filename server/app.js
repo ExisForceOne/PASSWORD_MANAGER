@@ -20,15 +20,13 @@ app.use(
     })
 )
 
-
-
-
+//Routes
 app.get('/', (req,res)=>{
     res.send('Welcome to home page')
 })
 
 
-app.use(usersRouter)
-app.use(keysRouter)
+app.use('/api/users/', usersRouter)
+app.use('/api/keys', keysRouter)
 
 export default app
