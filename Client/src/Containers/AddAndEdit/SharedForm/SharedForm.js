@@ -166,9 +166,10 @@ export default function SharedForm({data,endpoint}){
                 
                 <Input
                     label={'Website URL:'}
-                    id={'ulr'}
+                    id={'url'}
                     name={'url'}
                     type={'text'}
+                    placeholder="ex: https://www.google.pl/"
                     onChange={formik.handleChange}
                     value={formik.values.url}
                 />
