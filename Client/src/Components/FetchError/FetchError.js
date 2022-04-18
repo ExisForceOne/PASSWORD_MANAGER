@@ -1,10 +1,9 @@
-import style from './FetchError.module.css'
+import style from "./FetchError.module.css";
 
-export default function FetchError(props){
-    return (
-        <div className={style.container}>
-            <p>{props.message}</p>
-        </div>
-    )
+export default function FetchError(props) {
+  return (
+    <div className={style.container}>
+      <p>{props.message}</p>
+    </div>
+  );
 }
-

@@ -1,9 +1,5 @@
-import SharedForm from "../SharedForm/SharedForm"
+import SharedForm from "../SharedForm/SharedForm";
 
-
-export default function Add(props){
-
-    return (
-        <SharedForm endpoint={'add'}/>
-    )
+export default function Add(props) {
+  return <SharedForm endpoint={"add"} />;
 }

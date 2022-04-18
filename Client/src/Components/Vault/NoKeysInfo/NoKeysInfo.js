@@ -1,22 +1,20 @@
-import AddNewKeyBtn from "../../Buttons/AddNewKeyBtn/AddNewKeyBtn"
+import AddNewKeyBtn from "../../Buttons/AddNewKeyBtn/AddNewKeyBtn";
 
-export default function NoKeysInfo(props){
+export default function NoKeysInfo(props) {
+  const styledDiv = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "10px",
+    textAlign: "center",
+  };
 
-    const styledDiv = {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '10px',
-        textAlign: 'center',
-    }
-
-
-    return (
-        <div style={styledDiv}>
-        <p>You don't have the keys yet, create your first one!</p>
-        <AddNewKeyBtn />
-        <p>\(￣︶￣*\)</p>
-        </div>
-    )
+  return (
+    <div style={styledDiv}>
+      <p>You don't have the keys yet, create your first one!</p>
+      <AddNewKeyBtn />
+      <p>\(￣︶￣*\)</p>
+    </div>
+  );
 }
