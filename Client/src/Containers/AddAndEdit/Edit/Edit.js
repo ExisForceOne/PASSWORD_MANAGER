@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import api from "../../../Api";
 import AuthContext from "../../../Contexts/AuthContext";
 
-import AddAndEditForm from "../AddAndEditForm.js/AddAndEditForm";
+import AddAndEditForm from "../AddAndEditForm/AddAndEditForm";
 import Loading from "../../../Components/Loading/Loading";
 import FetchError from "../../../Components/FetchError/FetchError";
 

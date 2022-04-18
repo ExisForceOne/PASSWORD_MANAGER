@@ -162,6 +162,10 @@ export default function AddAndEditForm({ data, endpoint }) {
           placeholder="ex: https://www.google.pl/"
           onChange={formik.handleChange}
           value={formik.values.url}
+          onBlur={formik.handleBlur}
+          error={
+            formik.touched.url && formik.errors.url ? formik.errors.url : null
+          }
         />
 
         <Textarea
@@ -170,6 +174,12 @@ export default function AddAndEditForm({ data, endpoint }) {
           name={"desc"}
           onChange={formik.handleChange}
           value={formik.values.desc}
+          onBlur={formik.handleBlur}
+          error={
+            formik.touched.desc && formik.errors.desc
+              ? formik.errors.desc
+              : null
+          }
         />
 
         <Checkbox

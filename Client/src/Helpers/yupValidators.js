@@ -25,8 +25,13 @@ const yupValidators = {
       .trim()
       .max(18, "Name can have max 18 characters")
       .required("Name is required"),
-    login: Yup.string().trim().required("Login is required"),
+    login: Yup.string()
+      .max(45, "Login can have max 45 characters")
+      .trim()
+      .required("Login is required"),
     password: Yup.string().trim().required("Password is required"),
+    url: Yup.string().max(85, "URL can have max 85 characters"),
+    desc: Yup.string().max(85, "URL can have max 85 characters"),
   }),
 };
 

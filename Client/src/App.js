@@ -11,7 +11,7 @@ import Register from "./Containers/Auth/Register/Register";
 
 import Vault from "./Containers/Vault/Vault";
 import Details from "./Containers/Details/Details";
-import AddAndEditForm from "./Containers/AddAndEdit/AddAndEditForm.js/AddAndEditForm";
+import AddAndEditForm from "./Containers/AddAndEdit/AddAndEditForm/AddAndEditForm";
 import Edit from "./Containers/AddAndEdit/Edit/Edit";
 import Analysis from "./Containers/Analysis/Analysis";
 import NotFound from "./Components/NotFound/NotFound";
