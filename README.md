@@ -1,4 +1,4 @@
-# Password Menager
+# Password Manager
 
 MERN Stack CRUD App with JWT auth.
 Based on password manager
